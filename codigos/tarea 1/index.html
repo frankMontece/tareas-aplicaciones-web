@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimeStream - Plataforma de Streaming</title>
+    <style>
+        /* PALETA DE COLORES BASE */
+        :root {
+            --color-dark-1: #0e0915;
+            --color-dark-2: #1d1529;
+            --color-dark-3: #2c1f40;
+            --color-purple-1: #3b295a;
+            --color-purple-2: #5b4381;
+            --color-text: #e0d6eb;
+            --color-accent: #8a6dcc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--color-dark-1);
+            color: var(--color-text);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Estilos para las diferentes secciones */
+        header {
+            background: linear-gradient(135deg, var(--color-dark-2), var(--color-dark-3));
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--color-text);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: var(--color-purple-1);
+        }
+
+        main {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        article {
+            background: var(--color-dark-2);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        figure {
+            width: 100%;
+            max-width: 350px; /* Limita el ancho máximo de la imagen */
+            margin: 0 auto 1rem auto; /* Centra el figure y agrega margen inferior */
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        figcaption {
+            text-align: center;
+            color: var(--color-accent);
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        details {
+            background: var(--color-dark-3);
+            border-radius: 5px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--color-accent);
+        }
+
+        progress, meter {
+            width: 100%;
+            height: 20px;
+            margin: 0.5rem 0;
+            border-radius: 10px;
+        }
+
+        progress::-webkit-progress-bar {
+            background: var(--color-dark-3);
+            border-radius: 10px;
+        }
+
+        progress::-webkit-progress-value {
+            background: var(--color-accent);
+            border-radius: 10px;
+        }
+
+        meter::-webkit-meter-bar {
+            background: var(--color-dark-3);
+            border-radius: 10px;
+        }
+
+        meter::-webkit-meter-optimum-value {
+            background: linear-gradient(90deg, var(--color-accent), var(--color-purple-2));
+            border-radius: 10px;
+        }
+
+        mark {
+            background: linear-gradient(90deg, var(--color-purple-2), var(--color-accent));
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+        }
+
+        aside {
+            background: var(--color-dark-3);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        footer {
+            background: var(--color-dark-2);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        dialog {
+            background: var(--color-dark-3);
+            border: 2px solid var(--color-accent);
+            border-radius: 10px;
+            padding: 2rem;
+            color: var(--color-text);
+            max-width: 400px;
+        }
+
+        dialog::backdrop {
+            background: rgba(14, 9, 21, 0.8);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        input {
+            padding: 0.5rem;
+            border: 1px solid var(--color-purple-1);
+            border-radius: 5px;
+            background: var(--color-dark-2);
+            color: var(--color-text);
+        }
+
+        button {
+            background: var(--color-accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background: var(--color-purple-2);
+        }
+
+        .anime-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+}
+
+        .season-label {
+            background: var(--color-accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .search-form {
+            background: var(--color-dark-3);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#directorio anime">Directorio anime</a></li>
+                <li><a href="#generos">Géneros</a></li>
+                <li><a href="#novedades">Novedades</a></li>
+                <li><a href="#donaciones">Donaciones</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="search-form">
+            <h2>Buscar Anime</h2>
+            <form oninput="resultado.value = 'Buscando: ' + buscar.value">
+                <label>
+                    <input type="text" id="buscar" name="buscar" placeholder="Escribe el nombre del anime...">
+                </label>
+                <output name="resultado" for="buscar">Buscando...</output>
+            </form>
+        </section>
+        <section class="anime-grid">
+            <article>
+                <figure>
+                    <picture>
+                        <source media="(max-width: 600 px)" srcset="imagen/Kimetsu_No_Yaiba_Mugen_Jyo-hen_theatrical_poster.jpg">
+                        <img src="imagen/Kimetsu_No_Yaiba_Mugen_Jyo-hen_theatrical_poster.jpg" alt="portada Kimetsu_No_Yaiba_Mugen_Jyo-hen_theatrical_poster">
+                    </picture>
+                    <figcaption>Kimetsu no Yaiba Movie: Mugen Jou-hen</figcaption>
+                </figure>
+                <h3>Kimetsu no Yaiba Movie: Mugen Jou-hen</h3>
+                <details>
+                    <summary>Sinopsis</summary>
+                    <p>
+                        En un mundo amenazado por demonios, Tanjiro Kamado, junto a su hermana Nezuko y los miembros más poderosos del Cuerpo de Cazadores de Demonios —los Pilar (Hashira)—, lucha para proteger a la humanidad. Cuando Muzan Kibutsuji pone en peligro la Mansión Ubuyashiki, Tanjiro y los Pilar se apresuran para defenderla. Sin embargo, sus peores temores se materializan: son arrastrados hacia una dimensión misteriosa, una fortaleza que sirve como bastión de los demonios, el Castillo Infinito.
+                        Allí, comienza una confrontación inevitable. Humanos y demonios chocan en un enfrentamiento definitivo que marcará el rumbo de la guerra. Cada espada desenvainada alberga sacrificios, revelaciones dolorosas y la esperanza de terminar con el terror que Muzan ha sembrado durante tanto tiempo. Será una batalla épica, con aliados fieles, enemigos poderosos y dilemas que probarán el corazón de Tanjiro: ¿hasta dónde está dispuesto a llegar para salvar lo que aún puede salvarse?
+                    </p>
+                </details>
+                <label>Progreso de visualización:</label>
+                <progress value="75" max="100">75%</progress>
+                <label>Valoración:</label>
+                <meter value="90" min="0" max="100" low="40" high="80" optimum="90">92%</meter>
+                <p>En cines a partir del <time datetime="2022-09-11">11 de Septiembre 2025</time></p>
+                <data value="KIMETSU_K2K101">ID: KIMETSU_K2K101</data>
+                <p><mark>Psecuela: Kimetsu no Yaiba Movie: Mugen Jou-hen parte 2 /2027</mark></p>
+            </article>
+
+            <article>
+                <figure>
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="imagen/Game Center Shoujo to Ibunka Kouryuu.jpg">
+                        <img src="imagen/Game Center Shoujo to Ibunka Kouryuu.jpg" alt="Portada de Vinland Saga con guerreros vikingos en barco nórdico">
+                    </picture>
+                    <figcaption>Game Center Shoujo to Ibunka Kouryuu</figcaption>
+                </figure>
+                
+                <h3>Game Center Shoujo to Ibunka Kouryuu</h3>
+                
+                <details>
+                    <summary>Sinopsis</summary>
+                    <p>TKusakabe Renji, un joven que trabaja en un salón arcade, ve a una chica inglesa llamada Lily Baker jugando a la grúa el día de San Valentín. Viendo cómo la chica no consigue hacerse con un premio pese a sus múltiples intentos, Renji no puede evitar tomar cartas en el asunto. El día después de que Lily consiga por fin su peluche, Renji recibe un mensaje inesperado de la chica que pone: "¡Sé mi Valentín!". Lo que empieza siendo un malentendido acaba convirtiéndose en un intercambio cultural.</p>
+                </details>
+                
+                <label>Progreso de visualización:</label>
+                <progress value="100" max="100">Completado</progress>
+                
+                <label>Valoración:</label>
+                <meter value="95" min="0" max="100" low="40" high="80" optimum="90">95%</meter>
+                
+                <p>Estreno: <time datetime="2019-07-06">7 de Junio 2025</time></p>
+                <data value="KIK2354 101">ID: KIK2354 101</data>
+                <p><mark>En emision</mark></p>
+            </article>
+
+            <article>
+                <figure>
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="imagen/Spy x Family.jpg">
+                        <img src="imagen/Spy x Family.jpg">
+                    </picture>
+                    <figcaption>Spy x Family</figcaption>
+                </figure>
+                
+                <h3>Spy x Family</h3>
+                
+                <details>
+                    <summary>Sinopsis</summary>
+                    <p>Todo el mundo tiene una parte de sí mismos que no puede mostrar a los demás. En una era en la que las naciones de todo el mundo se encuentran involucradas en una feroz guerra de información a puerta cerrada, Ostania y Westalis llevan décadas en guerra fría. La División de Inteligencia de Westalis (WISE) envía a su mejor espía, "Twilight", en una misión ultrasecreta para vigilar los movimientos de Donovan Desmond, quien dirige el Partido Nacional por la Unidad de Ostania, responsable de bombardear los esfuerzos de paz entre ambos países. La misión tiene por nombre "Operación Strix". La idea es "crear una familia en una semana para infiltrarse en las reuniones sociales organizadas por la escuela de élite a la que asiste el hijo de Desmond". Twilight adopta la identidad del psiquiatra Loid Forger y comienza a buscar miembros para su familia, pero Anya, la hija que adopta, resulta tener la capacidad para leer las mentes a los demás, mientras que su esposa, Yor, es una asesina. Todos mantendrán estos en secreto, pero comenzarán una vida juntos en la que deberán ocultarse sus identidades unos a otros. La paz del mundo está ahora en manos de esta nueva familia mientras se embarcan en una aventura repleta de sorpresas.</p>
+                </details>
+                
+                <label>Progreso de visualización:</label>
+                <progress value="60" max="100">60%</progress>
+                
+                <label>Valoración:</label>
+                <meter value="89" min="0" max="100" low="40" high="80" optimum="90">89%</meter>
+                
+                <p>Estreno: <time datetime="2022-04-09">9 de Abril 2022</time></p>
+                <data value="ONE-PUNCHE A0110">ID: SPY-X-FAM001</data>
+                <p><mark>Película anunciada para 2024</mark></p>
+            </article>
+        </section>
+    </main>
+
+</body>

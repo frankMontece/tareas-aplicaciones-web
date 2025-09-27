@@ -1,0 +1,85 @@
+/* CSS diseño general */
+body {
+    font-family: Arial, sans-serif; /* Fuente simple y legible */
+    margin: 0; /* Elimina márgenes por defecto */
+    padding: 20px; /* Espaciado alrededor del contenido */
+    background-color: #f4f4f4; /* Fondo gris claro para un look profesional */
+    color: #333; /* Color de texto oscuro */
+}
+
+/* Contenedor principal: centra todo el CV */
+.contenedor-principal {
+    max-width: 800px; /* Ancho máximo para que no se vea demasiado ancho */
+    margin: 0 auto; /* Centra el contenedor */
+    background-color: white; /* Fondo blanco para el CV */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados para un toque moderno */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Estilos para la foto en la parte superior */
+.seccion-foto {
+    text-align: center; /* Centra la foto */
+    margin-bottom: 20px; /* Espacio debajo de la foto */
+}
+
+.seccion-foto img {
+    width: 200px; /* Ancho fijo para cuadrado (cambiado de 150px para mejor proporción) */
+    height: 200px; /* Altura igual al ancho para forma cuadrada (nuevo: antes era 200px rectangular) */
+    border-radius: 8px; /* Esquinas redondeadas suaves para look moderno (cambiado de 50% circular) */
+    object-fit: cover; /* Ajusta la imagen al cuadrado sin distorsión (mantiene proporciones, recorta si es necesario) */
+    border: 3px solid #ddd; /* Borde alrededor de la foto (sin cambios) */
+    display: block; /* Nuevo: Asegura que la imagen sea un bloque centrado */
+    margin: 0 auto; /* Nuevo: Centrado adicional si es necesario */
+}
+
+/* Estilos para encabezados de secciones */
+h1, h2 {
+    color: #2c3e50; /* Color azul oscuro para títulos */
+    border-bottom: 2px solid #3498db; /* Línea debajo de los títulos */
+    padding-bottom: 5px; /* Espacio debajo del título */
+}
+
+/* Estilos para listas (usadas en estudios, experiencia y capacitaciones) */
+ul {
+    list-style-type: disc; /* Viñetas para listas */
+    padding-left: 20px; /* Indentación de la lista */
+}
+
+li {
+    margin-bottom: 10px; /* Espacio entre elementos de la lista */
+}
+
+/* Estilos para la tabla de referencias */
+table {
+    width: 100%; /* Ocupa todo el ancho */
+    border-collapse: collapse; /* Une los bordes de las celdas */
+    margin-top: 10px; /* Espacio arriba de la tabla */
+}
+
+th, td {
+    border: 1px solid #ddd; /* Bordes de las celdas */
+    padding: 8px; /* Espaciado interno */
+    text-align: left; /* Alineación a la izquierda */
+}
+
+th {
+    background-color: #3498db; /* Fondo azul para encabezados */
+    color: white; /* Texto blanco */
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Filas alternas con fondo gris claro */
+}
+
+/* NUEVO: Media Query para hacer la foto adaptativa en dispositivos móviles (responsive) */
+@media (max-width: 600px) {
+    .seccion-foto img {
+        width: 150px; /* Reduce tamaño en pantallas pequeñas para adaptabilidad */
+        height: 150px; /* Mantiene cuadrado */
+    }
+    
+    .contenedor-principal {
+        padding: 10px; /* Reduce padding general en móviles */
+    }
+}

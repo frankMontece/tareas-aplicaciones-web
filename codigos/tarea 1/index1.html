@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimeStream - Plataforma de Streaming</title>
+    <style>
+        /* PALETA DE COLORES BASE */
+        :root {
+            --color-dark-1: #0e0915;
+            --color-dark-2: #1d1529;
+            --color-dark-3: #2c1f40;
+            --color-purple-1: #3b295a;
+            --color-purple-2: #5b4381;
+            --color-text: #e0d6eb;
+            --color-accent: #8a6dcc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--color-dark-1);
+            color: var(--color-text);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Estilos para las diferentes secciones */
+        header {
+            background: linear-gradient(135deg, var(--color-dark-2), var(--color-dark-3));
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--color-text);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: var(--color-purple-1);
+        }
+
+        main {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        article {
+            background: var(--color-dark-2);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        figure {
+            margin-bottom: 1rem;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 8px;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        figcaption {
+            text-align: center;
+            color: var(--color-accent);
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        details {
+            background: var(--color-dark-3);
+            border-radius: 5px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--color-accent);
+        }
+
+        progress, meter {
+            width: 100%;
+            height: 20px;
+            margin: 0.5rem 0;
+            border-radius: 10px;
+        }
+
+        progress::-webkit-progress-bar {
+            background: var(--color-dark-3);
+            border-radius: 10px;
+        }
+
+        progress::-webkit-progress-value {
+            background: var(--color-accent);
+            border-radius: 10px;
+        }
+
+        meter::-webkit-meter-bar {
+            background: var(--color-dark-3);
+            border-radius: 10px;
+        }
+
+        meter::-webkit-meter-optimum-value {
+            background: linear-gradient(90deg, var(--color-accent), var(--color-purple-2));
+            border-radius: 10px;
+        }
+
+        mark {
+            background: linear-gradient(90deg, var(--color-purple-2), var(--color-accent));
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+        }
+
+        aside {
+            background: var(--color-dark-3);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        footer {
+            background: var(--color-dark-2);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        dialog {
+            background: var(--color-dark-3);
+            border: 2px solid var(--color-accent);
+            border-radius: 10px;
+            padding: 2rem;
+            color: var(--color-text);
+            max-width: 400px;
+        }
+
+        dialog::backdrop {
+            background: rgba(14, 9, 21, 0.8);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        input {
+            padding: 0.5rem;
+            border: 1px solid var(--color-purple-1);
+            border-radius: 5px;
+            background: var(--color-dark-2);
+            color: var(--color-text);
+        }
+
+        button {
+            background: var(--color-accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background: var(--color-purple-2);
+        }
+
+        .anime-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .season-label {
+            background: var(--color-accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .search-form {
+            background: var(--color-dark-3);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- PASO 4.1: HEADER CON NAVEGACIÓN PRINCIPAL -->
+    <!-- Etiqueta <header>: Define el encabezado de la página -->
+    <header>
+        <!-- Etiqueta <nav>: Define la barra de navegación principal -->
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#series">Series</a></li>
+                <li><a href="#generos">Géneros</a></li>
+                <li><a href="#novedades">Novedades</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- PASO 4.2: CONTENIDO PRINCIPAL -->
+    <!-- Etiqueta <main>: Define el contenido principal de la página -->
+    <main>
+        <!-- Sección de búsqueda con output dinámico -->
+        <!-- Etiqueta <section>: Agrupa contenido temáticamente relacionado -->
+        <section class="search-form">
+            <h2>Buscar Anime</h2>
+            <!-- Etiqueta <form>: Formulario para entrada de datos -->
+            <form oninput="resultado.value = 'Buscando: ' + buscar.value">
+                <!-- Etiqueta <label>: Etiqueta descriptiva para el input -->
+                <label>
+                    <input type="text" id="buscar" name="buscar" placeholder="Escribe el nombre del anime...">
+                </label>
+                <!-- Etiqueta <output>: Muestra el resultado del cálculo o acción -->
+                <output name="resultado" for="buscar">Búsqueda...</output>
+            </form>
+        </section>
+
+        <!-- Sección principal de animes -->
+        <section class="anime-grid">
+            <!-- PASO 4.3: ARTÍCULOS PARA CADA ANIME -->
+            <!-- Etiqueta <article>: Contenido independiente y autocontenido -->
+            <article>
+                <!-- Etiqueta <figure>: Contenedor para imágenes con leyenda -->
+                <figure>
+                    <!-- Etiqueta <picture>: Permite imágenes adaptativas para diferentes dispositivos -->
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="https://placeholder-image-service.onrender.com/image/300x200?prompt=Portada%20de%20anime%20Cyberpunk%20Edgerunners%20con%20personajes%20cyberpunk%20y%20ciudad%20futurista&id=cyberpunk-edgerunners-001">
+                        <img src="https://placeholder-image-service.onrender.com/image/400x300?prompt=Portada%20de%20anime%20Cyberpunk%2077%20con%20estilo%20cyberpunk%20colores%20neon&id=cyberpunk-77-001" alt="Portada de Cyberpunk: Edgerunners con personajes cyberpunk en ciudad futurista">
+                    </picture>
+                    <!-- Etiqueta <figcaption>: Leyenda o descripción de la imagen -->
+                    <figcaption>Cyberpunk: Edgerunners - Serie de acción cyberpunk</figcaption>
+                </figure>
+                
+                <h3>Cyberpunk: Edgerunners</h3>
+                
+                <!-- Etiqueta <details> y <summary>: Contenido desplegable -->
+                <details>
+                    <!-- Etiqueta <summary>: Título visible del desplegable -->
+                    <summary>Sinopsis</summary>
+                    <p>Un niño de la calle intenta sobrevivir en una ciudad de tecnología y modificaciones cybernéticas obsesionada con el poder y la gloria.</p>
+                </details>
+                
+                <!-- Etiqueta <progress>: Barra de progreso de visualización -->
+                <label>Progreso de visualización:</label>
+                <progress value="75" max="100">75%</progress>
+                
+                <!-- Etiqueta <meter>: Medidor de valoración -->
+                <label>Valoración:</label>
+                <meter value="92" min="0" max="100" low="40" high="80" optimum="90">92%</meter>
+                
+                <!-- Etiqueta <time>: Representa fecha de lanzamiento -->
+                <p>Estreno: <time datetime="2022-09-13">13 de Septiembre 2022</time></p>
+                
+                <!-- Etiqueta <data>: Asocia contenido con valor legible por máquina -->
+                <data value="CP2077-EDG001">ID: CP2077-EDG001</data>
+                
+                <!-- Etiqueta <mark>: Resalta texto importante -->
+                <p><mark>NUEVO: Temporada 2 confirmada!</mark></p>
+            </article>
+
+            <!-- Segundo artículo de anime -->
+            <article>
+                <figure>
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="https://placeholder-image-service.onrender.com/image/300x200?prompt=Portada%20anime%20Vinland%20Saga%20vikingos%20batallas%20épicas&id=vinland-saga-001">
+                        <img src="https://placeholder-image-service.onrender.com/image/400x300?prompt=Portada%20Vinland%20Saga%20con%20vikingos%20y%20barcos%20nórdicos&id=vinland-saga-002" alt="Portada de Vinland Saga con guerreros vikingos en barco nórdico">
+                    </picture>
+                    <figcaption>Vinland Saga - Epopeya vikinga histórica</figcaption>
+                </figure>
+                
+                <h3>Vinland Saga</h3>
+                
+                <details>
+                    <summary>Sinopsis</summary>
+                    <p>Thorfinn sigue los pasos de su padre y se embarca en una aventura vikinga para vengar la muerte de su padre.</p>
+                </details>
+                
+                <label>Progreso de visualización:</label>
+                <progress value="100" max="100">Completado</progress>
+                
+                <label>Valoración:</label>
+                <meter value="95" min="0" max="100" low="40" high="80" optimum="90">95%</meter>
+                
+                <p>Estreno: <time datetime="2019-07-07">7 de Julio 2019</time></p>
+                <data value="VNLND-SAGA001">ID: VNLND-SAGA001</data>
+                <p><mark>Temporada 3 en producción</mark></p>
+            </article>
+
+            <!-- Tercer artículo de anime -->
+            <article>
+                <figure>
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="https://placeholder-image-service.onrender.com/image/300x200?prompt=Portada%20anime%20Spy%20x%20Family%20familia%20espías%20comedia&id=spy-family-001">
+                        <img src="https://placeholder-image-service.onrender.com/image/400x300?prompt=Portada%20Spy%20x%20Family%20con%20familia%20de%20espías%20y%20mascota&id=spy-family-002" alt="Portada de Spy x Family con familia de espías y perro sonriente">
+                    </picture>
+                    <figcaption>Spy x Family - Comedia de espías familiar</figcaption>
+                </figure>
+                
+                <h3>Spy x Family</h3>
+                
+                <details>
+                    <summary>Sinopsis</summary>
+                    <p>Un espía se hace pasar por padre de familia para cumplir una misión, pero su hija adoptiva es una telepática y su esposa una asesina.</p>
+                </details>
+                
+                <label>Progreso de visualización:</label>
+                <progress value="60" max="100">60%</progress>
+                
+                <label>Valoración:</label>
+                <meter value="89" min="0" max="100" low="40" high="80" optimum="90">89%</meter>
+                
+                <p>Estreno: <time datetime="2022-04-09">9 de Abril 2022</time></p>
+                <data value="SPY-X-FAM001">ID: SPY-X-FAM001</data>
+                <p><mark>Película anunciada para 2024</mark></p>
+            </article>
+        </section>
+
+        <!-- PASO 4.4: BARRA LATERAL CON RECOMENDACIONES -->
+        <!-- Etiqueta <aside>: Contenido relacionado pero secundario -->
+        <aside>
+            <h2>✨ Recomendaciones Especiales</h2>
+            <ul>
+                <li><mark>Attack on Titan - Final Season</mark></li>
+                <li><mark>Demon Slayer: Kimetsu no Yaiba</mark></li>
+                <li><mark>Jujutsu Kaisen</mark></li>
+                <li><mark>Chainsaw Man</mark></li>
+                <li><mark>One Piece - Wano Country</mark></li>
+            </ul>
+            
+            <!-- Etiqueta <template>: Plantilla HTML reutilizable (no visible) -->
+            <template id="recomendacionTemplate">
+                <li class="recomendacion-item">
+                    <strong></strong> - <span class="genero"></span>
+                    <p class="descripcion"></p>
+                </li>
+            </template>
+        </aside>
+
+        <!-- Sección de próximos estrenos -->
+        <section>
+            <h2>🍥 Próximos Estrenos</h2>
+            <div class="anime-grid">
+                <article>
+                    <h4>Delicious in Dungeon</h4>
+                    <p>Estreno: <time datetime="2024-01-04">4 de Enero 2024</time></p>
+                    <mark>NUEVA TEMPORADA</mark>
+                </article>
+                <article>
+                    <h4>Solo Leveling</h4>
+                    <p>Estreno: <time datetime="2024-01-06">6 de Enero 2024</time></p>
+                    <mark>ESTRENO MUNDIAL</mark>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- PASO 4.5: PIE DE PÁGINA -->
+    <!-- Etiqueta <footer>: Pie de página con información adicional -->
+    <footer>
+        <p>© 2024 AnimeStream - Todos los derechos reservados</p>
+        <p>Plataforma oficial de streaming de anime</p>
+        <p>Contacto: <a href="mailto:info@animestream.com">info@animestream.com</a></p>
+    </footer>
+
+    <!-- PASO 4.6: VENTANA MODAL DE LOGIN -->
+    <!-- Etiqueta <dialog>: Cuadro de diálogo modal -->
+    <dialog id="loginDialog">
+        <h2>🔐 Iniciar Sesión</h2>
+        <form method="dialog">
+            <label>
+                Usuario:
+                <input type="text" name="usuario" required>
+            </label>
+            <label>
+                Contraseña:
+                <input type="password" name="contrasena" required>
+            </label>
+            <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                <button value="cancelar">Cancelar</button>
+                <button value="confirmar">Iniciar Sesión</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- Botón para abrir el modal -->
+    <button onclick="document.getElementById('loginDialog').showModal()" 
+            style="position: fixed; bottom: 2rem; right: 2rem; z-index: 1000;">
+        👤 Login
+    </button>
+
+    <script>
+        // Script simple para demostrar funcionalidad
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ejemplo de uso del template (podría usarse para cargar más recomendaciones)
+            const template = document.getElementById('recomendacionTemplate');
+            
+            // Simular datos dinámicos
+            const nuevasRecomendaciones = [
+                { titulo: "My Hero Academia", genero: "Superhéroes", desc: "Última temporada disponible" },
+                { titulo: "Demon Slayer", genero: "Demonios", desc: "Arco del Tren Infinito" }
+            ];
+
+            // Aquí se podría usar el template para renderizar dinámicamente
+            console.log("Template disponible para renderizado dinámico");
+            
+            // Manejo simple del formulario de búsqueda
+            const formBusqueda = document.querySelector('form');
+            formBusqueda.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Búsqueda realizada: ' + document.getElementById('buscar').value);
+            });
+        });
+    </script>
+</body>
+</html>
