@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!-- Declaración del tipo de documento HTML5 para compatibilidad moderna -->
+<html lang="es">
+<!-- Etiqueta html con lang="es" para indicar que el contenido está en español -->
+
+<head>
+    <!-- Sección de metadatos y recursos externos -->
+    <meta charset="UTF-8">
+    <!-- Codificación de caracteres UTF-8 para soportar acentos y caracteres especiales en español -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Metaetiqueta para hacer el sitio responsivo en dispositivos móviles -->
+    <title>Sorteo SuperMart - Recolección de Datos</title>
+    <!-- Título de la página que aparece en la pestaña del navegador -->
+    <link rel="stylesheet" href="estilos.css">
+    <!-- Enlace al archivo CSS para aplicar estilos visuales -->
+</head>
+
+<body>
+    <!-- Cuerpo principal de la página -->
+    <div class="contenedor">
+        <!-- Contenedor principal para centrar el formulario en la página -->
+        <header>
+            <!-- Encabezado con el título del sorteo -->
+            <h1>Sorteo del Supermercado SuperMart</h1>
+            <!-- Título principal del formulario -->
+            <p>¡Participa en nuestro sorteo y gana premios increíbles! Completa el formulario con tus datos.</p>
+            <!-- Descripción breve para contextualizar al usuario -->
+        </header>
+
+        <form id="formularioSorteo" action="#" method="post">
+            <!-- Formulario HTML con ID para referenciarlo en JavaScript. action="#" es placeholder ya que no hay backend -->
+            
+            <!-- Sección de campos personales -->
+            <fieldset>
+                <!-- fieldset para agrupar campos relacionados lógicamente -->
+                <legend>Datos Personales</legend>
+                <!-- delineado contornal para identificar la sección -->
+                
+                <label for="nombre">Nombre Completo:</label>
+                <!-- Etiqueta asociada al input para accesibilidad -->
+                <input type="text" id="nombre" name="nombre" required>
+                <!-- Input de texto para nombre, con required para validación HTML básica -->
+                
+                <label for="cedula">Cédula (Número de Identificación):</label>
+                <input type="text" id="cedula" name="cedula" required>
+                <!-- Input para cédula, validación JS para números -->
+                
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required>
+                <!-- Input de email con tipo="email" para validación HTML nativa -->
+                
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required>
+                <!-- Input de teléfono con tipo="tel" para teclados móviles -->
+            </fieldset>
+
+            <!-- Sección de datos adicionales -->
+            <fieldset>
+                <legend>Datos de Contacto y Edad</legend>
+                
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" name="direccion" required>
+                <!-- Input para dirección -->
+                
+                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+                <!-- Input de fecha, validación JS para edad mínima -->
+            </fieldset>
+
+            <!-- Botón de envío -->
+            <button type="submit">Participar en el Sorteo</button>
+            <!-- Botón submit que activa la validación JS al hacer clic -->
+        </form>
+
+        <div id="mensajeExito" class="mensaje oculto">
+            <!-- Div para mostrar mensaje de éxito, inicialmente oculto -->
+            <p>¡Gracias por participar! Tus datos han sido enviados correctamente. ¡Suerte en el sorteo!</p>
+        </div>
+    </div>
+
+    <script src="fun.js"></script>
+    <!-- Enlace al archivo JavaScript para cargar la funcionalidad al final del body (buena práctica para rendimiento) -->
+</body>
+</html>

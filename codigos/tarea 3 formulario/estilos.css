@@ -1,0 +1,163 @@
+/* Reset básico y estilos generales */
+* {
+    /* Selector universal para resetear márgenes y paddings por defecto del navegador */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Incluye padding y border en el ancho/alto total del elemento */
+}
+
+body {
+    /* Estilos para el fondo y tipografía general */
+    font-family: Arial, sans-serif; /* Fuente sans-serif para legibilidad */
+    background-color: #000000; /* Fondo gris claro para contraste */
+    color: #ffffff; /* Color de texto oscuro */
+    line-height: 1.6; /* Espaciado entre líneas para mejor lectura */
+}
+
+/* Contenedor principal */
+.contenedor {
+    /* Clase para centrar el formulario en la página usando flexbox */
+    max-width: 600px; /* Ancho máximo para no extenderse demasiado */
+    margin: 50px auto; /* Margen automático para centrar horizontalmente, 50px arriba/abajo */
+    padding: 20px; /* Espaciado interno */
+    background-color: black; /* Fondo blanco para el contenedor */
+    border-radius: 10px; /* Bordes redondeados para un look moderno */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para profundidad */
+    display: flex; /* Flexbox para alinear elementos verticalmente */
+    flex-direction: column; /* Dirección de columna */
+    align-items: center; /* Centrar horizontalmente los hijos */
+}
+
+/* Estilos para el encabezado */
+header h1 {
+    /* Título principal con color temático verde */
+    color: #4CAF50; /* Verde para evocar frescura de supermercado */
+    margin-bottom: 10px; /* Espacio debajo del título */
+    text-align: center; /* Centrado */
+}
+
+header p {
+    /* Descripción del encabezado */
+    text-align: center; /* Centrado */
+    margin-bottom: 20px; /* Espacio debajo */
+    color: #666; /* Gris para texto secundario */
+}
+
+/* Estilos para el formulario */
+form {
+    /* Formulario ocupa todo el ancho disponible */
+    width: 100%; /* Ancho completo del contenedor padre */
+}
+
+fieldset {
+    /* Estilos para secciones de campos (fieldset) */
+    border: 2px solid #4CAF50; /* Borde verde temático */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-bottom: 20px; /* Espacio entre secciones */
+    padding: 15px; /* Espaciado interno */
+}
+
+legend {
+    /* Leyenda de cada sección */
+    font-weight: bold; /* Negrita para resaltar */
+    color: #4CAF50; /* Verde */
+    padding: 0 10px; /* Espaciado lateral */
+}
+
+label {
+    /* Etiquetas de los inputs */
+    display: block; /* Bloque para que ocupen línea completa */
+    margin-bottom: 5px; /* Espacio debajo de cada etiqueta */
+    font-weight: bold; /* Negrita */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"] {
+    /* Estilos comunes para todos los inputs */
+    width: 100%; /* Ancho completo */
+    padding: 10px; /* Espaciado interno */
+    margin-bottom: 15px; /* Espacio debajo de cada input */
+    border: 1px solid #ddd; /* Borde gris claro */
+    border-radius: 4px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente para usabilidad en móviles */
+}
+
+input:focus {
+    /* Estilo cuando el input está enfocado (hover) */
+    border-color: #4CAF50; /* Borde verde al seleccionar */
+    outline: none; /* Quitar outline por defecto */
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3); /* Sombra verde sutil */
+}
+
+button {
+    /* Botón de envío */
+    width: 100%; /* Ancho completo */
+    background-color: #4CAF50; /* Fondo verde */
+    color: white; /* Texto blanco */
+    padding: 12px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 18px; /* Tamaño de fuente grande */
+    cursor: pointer; /* Cursor de mano al hover */
+    margin-top: 10px; /* Espacio arriba */
+}
+
+button:hover {
+    /* Efecto hover en el botón */
+    background-color: #45a049; /* Verde más oscuro */
+}
+
+/* Mensaje de éxito */
+.mensaje {
+    /* Clase base para mensajes (éxito o error) */
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#mensajeExito {
+    /* Mensaje específico de éxito */
+    background-color: #d4edda; /* Verde claro para éxito */
+    color: #155724; /* Texto verde oscuro */
+    border: 1px solid #c3e6cb; /* Borde verde */
+}
+
+.oculto {
+    /* Clase para ocultar elementos inicialmente */
+    display: none; /* Oculto por defecto */
+}
+
+/* Media query para responsividad en móviles */
+@media (max-width: 600px) {
+    /* Ajustes para pantallas pequeñas */
+    .contenedor {
+        margin: 20px; /* Márgenes reducidos */
+        padding: 15px; /* Padding reducido */
+    }
+}
+/* Estilos para mensajes de error */
+.mensaje-error {
+    color: #ff0000;
+    font-size: 14px;
+    margin-top: 5px;
+    font-weight: normal;
+}
+
+/* Estilo para campos con error */
+input.error {
+    border-color: #ff0000 !important;
+}
+
+/* Ajuste para el mensaje de éxito */
+#mensajeExito {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: center;
+}
