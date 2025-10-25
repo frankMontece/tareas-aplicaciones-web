@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Silabos Pendientes</title>
+    <link rel="stylesheet" href="../documentos css/revision.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Barra lateral de navegación -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>🖥️ Sistema Silabos</h2>
+                <p>Panel de Revisión</p>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li class="menu-item active">
+                    <a href="#">
+                        <span class="icon">📋</span>
+                        <span class="text">Silabos Pendientes</span>
+                        <span class="notification-badge">1</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#">
+                        <span class="icon">✅</span>
+                        <span class="text">Silabos Aprobados</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#">
+                        <span class="icon">❌</span>
+                        <span class="text">Silabos Rechazados</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#">
+                        <span class="icon">📊</span>
+                        <span class="text">Reportes</span>
+                    </a>
+                </li>
+                
+                <li class="menu-item logout">
+                    <a href="index_login.html">
+                        <span class="icon">🚪</span>
+                        <span class="text">Cerrar Sesión</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="sidebar-footer">
+                <p>2025 Sistema de Silabos</p>
+                <p>Versión 2.0</p>
+            </div>
+        </nav>
+
+        <!-- Contenido principal -->
+        <main class="main-content">
+            <!-- Header superior -->
+            <header class="top-header">
+                <div class="header-left">
+                    <h1>📋 Silabos Pendientes de Revisión</h1>
+                    <p>Panel de Decanato / Comisión Académica</p>
+                </div>
+                <div class="header-right">
+                    <div class="user-info">
+                        <span class="user-name">Dr. Carlos Mendoza</span>
+                        <span class="user-role">Decano - Facultad de Ciencias</span>
+                    </div>
+                    <div class="user-avatar">
+                        <span>CM</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Estadísticas básicas -->
+            <section class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-icon">⏰</div>
+                    <div class="stat-info">
+                        <h3>1</h3>
+                        <p>Total Pendientes</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🚨</div>
+                    <div class="stat-info">
+                        <h3>1</h3>
+                        <p>Urgentes</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📅</div>
+                    <div class="stat-info">
+                        <h3>1</h3>
+                        <p>Vencen esta semana</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Lista de silabos pendientes -->
+            <section class="syllabus-section">
+                <div class="section-header">
+                    <h2>📚 Silabo Pendiente de Revisión</h2>
+                </div>
+
+                <div class="syllabus-grid">
+                    <!-- Tarjeta de silabo único -->
+                    <div class="syllabus-card">
+                        <div class="card-header">
+                            <h3>🌐 Aplicaciones Web I - TDI-503</h3>
+                            <span class="status-badge urgente">Urgente</span>
+                        </div>
+                        <div class="card-content">
+                            <p><strong>Docente:</strong> Quiroz Palma Patricia Alexandra</p>
+                            <p><strong>Facultad:</strong> Ingeniería en Sistemas</p>
+                            <p><strong>Período:</strong> 2025-2 | Paralelo: A | Nivel: 5</p>
+                            <p><strong>Fecha envío:</strong> 15/03/2025</p>
+                            <p><strong>Días pendientes:</strong> 7 días</p>
+                            <p><strong>Estudiantes:</strong> 45</p>
+                            <p><strong>Horas Contacto:</strong> 48h</p>
+                            <p><strong>Horas Práctica:</strong> 48h</p>
+                            <p><strong>Horas Autónomo:</strong> 4h</p>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-outline" onclick="mostrarDetalles()">👁️ Ver Detalles</button>
+                            <button class="btn btn-primary" onclick="iniciarRevision()">📝 aprobar silabo</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal para detalles del silabo -->
+    <div id="syllabusModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Detalles del Silabo - TDI-503</h3>
+                <span class="close-modal" onclick="cerrarModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="detail-row">
+                    <span class="detail-label">Código:</span>
+                    <span class="detail-value">TDI-503</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Materia:</span>
+                    <span class="detail-value">Aplicaciones Web I</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Docente:</span>
+                    <span class="detail-value">Quiroz Palma Patricia Alexandra</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Facultad:</span>
+                    <span class="detail-value">Ingeniería en Sistemas</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Período:</span>
+                    <span class="detail-value">2025-2 | Paralelo A | Nivel 5</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Estudiantes:</span>
+                    <span class="detail-value">45</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Horas Contacto:</span>
+                    <span class="detail-value">48h</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Horas Práctica:</span>
+                    <span class="detail-value">48h</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Horas Autónomo:</span>
+                    <span class="detail-value">4h</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Fecha de Envío:</span>
+                    <span class="detail-value">15/03/2025</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Días Pendientes:</span>
+                    <span class="detail-value">7 días</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Estado:</span>
+                    <span class="detail-value">
+                        <span class="status-badge urgente">Urgente</span>
+                    </span>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-outline" onclick="cerrarModal()">Cerrar</button>
+                <button class="btn btn-primary" onclick="iniciarRevision()">📝aprobar revision</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../documentos javascript/revision.js"></script>
+</body>
+</html>

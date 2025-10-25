@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva Contraseña - Sistema de Silabos</title>
+    <link rel="stylesheet" href="../documentos css/nueva_contrasena_estilos.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-form">
+            <div class="back-button">
+                <a href="verificar_codigo.html">&larr; Volver atrás</a>
+            </div>
+            
+            <h1>Nueva Contraseña</h1>
+            <p class="subtitle">Ingresa y confirma tu nueva contraseña</p>
+            
+            <form id="newPasswordForm">
+                <div class="form-group">
+                    <label for="new-password">Nueva Contraseña</label>
+                    <div class="password-input">
+                        <input type="password" id="new-password" name="new-password" required 
+                            placeholder="Ingresa tu nueva contraseña">
+                        <span class="toggle-password" onclick="togglePassword('new-password')">👁️</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirm-password">Confirmar Contraseña</label>
+                    <div class="password-input">
+                        <input type="password" id="confirm-password" name="confirm-password" required 
+                               placeholder="Confirma tu nueva contraseña">
+                        <span class="toggle-password" onclick="togglePassword('confirm-password')">👁️</span>
+                    </div>
+                    <div class="password-match" id="password-match">
+                        <span id="match-text">Las contraseñas deben coincidir</span>
+                    </div>
+                </div>
+                
+                <button type="submit" class="login-btn" id="submit-btn" disabled>
+                    <span class="btn-text">Establecer Nueva Contraseña</span>
+                </button>
+            </form>
+            
+            <footer>
+                <p>2025 Sistema de Automatización de Silabos.</p>
+                <p>Confirmar nueva contraseña</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Función para mostrar/ocultar contraseña
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            const toggle = input.parentNode.querySelector('.toggle-password');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                toggle.textContent = '🔒';
+            } else {
+                input.type = 'password';
+                toggle.textContent = '👁️';
+            }
+        }
+
+        // Función para verificar coincidencia de contraseñas
+        function checkPasswordMatch() {
+            const password = document.getElementById('new-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const matchElement = document.getElementById('password-match');
+            const matchText = document.getElementById('match-text');
+            const submitBtn = document.getElementById('submit-btn');
+
+            if (confirmPassword.length === 0) {
+                matchElement.className = 'password-match';
+                matchText.textContent = 'Las contraseñas deben coincidir';
+                submitBtn.disabled = true;
+                return false;
+            } else if (password === confirmPassword) {
+                matchElement.className = 'password-match valid';
+                matchText.textContent = '✓ Las contraseñas coinciden';
+                submitBtn.disabled = false;
+                return true;
+            } else {
+                matchElement.className = 'password-match invalid';
+                matchText.textContent = '✗ Las contraseñas no coinciden';
+                submitBtn.disabled = true;
+                return false;
+            }
+        }
+
+        // Event listeners
+        document.getElementById('new-password').addEventListener('input', checkPasswordMatch);
+        document.getElementById('confirm-password').addEventListener('input', checkPasswordMatch);
+
+        // Manejo del envío del formulario
+        document.getElementById('newPasswordForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const button = this.querySelector('.login-btn');
+            const buttonText = button.querySelector('.btn-text');
+            
+            // Simular actualización de contraseña
+            button.disabled = true;
+            buttonText.textContent = 'Actualizando...';
+            button.innerHTML = '<div class="loading"></div>Actualizando...';
+
+            setTimeout(function() {
+                button.innerHTML = '<span class="btn-text">✓ Contraseña Actualizada</span>';
+                
+                // Redirigir al login después de 2 segundos
+                setTimeout(function() {
+                    window.location.href = 'index_login.html?message=password_updated';
+                }, 2000);
+                
+            }, 2000);
+        });
+
+        // Auto-focus en el primer campo al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('new-password').focus();
+        });
+    </script>
+</body>
+</html>

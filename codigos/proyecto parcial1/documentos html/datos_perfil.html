@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relación con Perfil de Egreso - Sistema de Automatización</title>
+    <link rel="stylesheet" href="../documentos css/datos_perfil_estilos.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Barra lateral de navegación -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>🖥️ Sistema Silabos</h2>
+                <p>Panel del Profesor</p>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li class="menu-item">
+                    <a href="dashboard.html">
+                        <span class="icon">📚</span>
+                        <span class="text">Mis Silabos</span>
+                    </a>
+                </li>
+                <li class="menu-item active">
+                    <a href="#">
+                        <span class="icon">➕</span>
+                        <span class="text">Crear Silabo</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#">
+                        <span class="icon">🔔</span>
+                        <span class="text">Notificaciones</span>
+                        <span class="notification-badge">3</span>
+                    </a>
+                </li>
+                
+                <li class="menu-item logout">
+                    <a href="index_login.html">
+                        <span class="icon">🚪</span>
+                        <span class="text">Cerrar Sesión</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="sidebar-footer">
+                <p>2025 Sistema de Silabos</p>
+                <p>VersiónUwUr</p>
+            </div>
+        </nav>
+
+        <!-- Contenido principal -->
+        <main class="main-content">
+            <!-- Header superior -->
+            <header class="top-header">
+                <div class="header-left">
+                    <h1>🎯 RESULTADOS Y LOGROS</h1>
+                    <p>Relación con Resultados de Aprendizaje del Perfil de Egreso</p>
+                </div>
+                <div class="header-right">
+                    <div class="user-info">
+                        <span class="user-name">Prof. QUIROZ PALMA PATRICIA ALEXANDRA</span>
+                        <span class="user-role">Docente - Facultad de ciencias de la vida y tecnologia</span>
+                    </div>
+                    <div class="user-avatar">
+                        <span>QA</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Progreso del formulario -->
+            <section class="progress-section">
+                <div class="progress-steps">
+                    <div class="step completed">
+                        <span class="step-number">✓</span>
+                        <span class="step-text">Datos Generales</span>
+                    </div>
+                    <div class="step active">
+                        <span class="step-number">2</span>
+                        <span class="step-text">Relación con Perfil</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <span class="step-text">Contenidos</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <span class="step-text">bibliografia</span>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Formulario de relación con perfil de egreso -->
+            <section class="form-section">
+                <div class="form-container">
+                    <h2>📊 RELACIÓN CON RESULTADOS DE APRENDIZAJE DEL PERFIL DE EGRESO</h2>
+                    
+                    <form id="perfilForm">
+                        <!-- Resultados de Aprendizaje del Perfil de Egreso -->
+                        <div class="resultados-section">
+                            <h3>🎓 Resultados de Aprendizaje del Perfil de Egreso</h3>
+                            
+                            <div class="resultado-item">
+                                <div class="form-group">
+                                    <label for="resultado-aprendizaje">Resultado de Aprendizaje del Perfil de Egreso *</label>
+                                    <textarea id="resultado-aprendizaje" name="resultado-aprendizaje" 
+                                              rows="3" placeholder="Ej: Conocer, comprender y evaluar la estructura..." required></textarea>
+                                </div>
+                                
+                                <div class="nivel-relacion">
+                                    <label>Nivel de Relación *</label>
+                                    <div class="nivel-options">
+                                        <label class="radio-option">
+                                            <input type="radio" name="nivel-relacion" value="bajo" required>
+                                            <span class="radio-custom"></span>
+                                            Bajo
+                                        </label>
+                                        <label class="radio-option">
+                                            <input type="radio" name="nivel-relacion" value="medio">
+                                            <span class="radio-custom"></span>
+                                            Medio
+                                        </label>
+                                        <label class="radio-option">
+                                            <input type="radio" name="nivel-relacion" value="alto">
+                                            <span class="radio-custom"></span>
+                                            Alto
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Logros de Aprendizaje de la Asignatura -->
+                        <div class="logros-section">
+                            <h3>🎯 Agregar Logro de Aprendizaje de la Asignatura</h3>
+                            
+                            <div class="logro-principal">
+                                <div class="form-group">
+                                    <label for="resultado-principal">Resultado Principal *</label>
+                                    <textarea id="resultado-principal" name="resultado-principal" 
+                                              rows="3" placeholder="Ej: Desarrolla e implementa aplicaciones de Internet enriquecedoras..." required></textarea>
+                                </div>
+                            </div>
+
+                            <div class="logros-container" id="logros-container">
+                                <!-- Logro 1 -->
+                                <div class="logro-item">
+                                    <div class="logro-header">
+                                        <h4>Logro 1</h4>
+                                        <button type="button" class="btn-eliminar" onclick="eliminarLogro(this)">🗑️</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea name="logro[]" rows="2" placeholder="Ej: Aplicar los conocimientos sobre los estándares..." required></textarea>
+                                    </div>
+                                </div>
+
+                                <!-- Logro 2 -->
+                                <div class="logro-item">
+                                    <div class="logro-header">
+                                        <h4>Logro 2</h4>
+                                        <button type="button" class="btn-eliminar" onclick="eliminarLogro(this)">🗑️</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea name="logro[]" rows="2" placeholder="Ej: Configurar e implementar librerías y frameworks..." required></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="button" class="btn btn-outline" id="btn-agregar-logro">
+                                ➕ Agregar otro logro
+                            </button>
+                        </div>
+
+                        <!-- Botones de acción -->
+                        <div class="form-actions">
+                            <a href="crear_cilabo.html" class="btn btn-secondary">
+                                ⬅️ Anterior
+                            </a>
+                            <div class="action-buttons">
+                                <button type="button" class="btn btn-secondary" id="btn-guardar-cambios">
+                                    💾 Guardar Cambios
+                                </button>
+                                <button type="submit" class="btn btn-primary" id="btn-siguiente">
+                                    ➡️ Siguiente: Estructura Conceptual
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        let logroCount = 2;
+
+        // Agregar nuevo logro
+        document.getElementById('btn-agregar-logro').addEventListener('click', function() {
+            logroCount++;
+            const logrosContainer = document.getElementById('logros-container');
+            
+            const nuevoLogro = document.createElement('div');
+            nuevoLogro.className = 'logro-item';
+            nuevoLogro.innerHTML = `
+                <div class="logro-header">
+                    <h4>Logro ${logroCount}</h4>
+                    <button type="button" class="btn-eliminar" onclick="eliminarLogro(this)">🗑️</button>
+                </div>
+                <div class="form-group">
+                    <textarea name="logro[]" rows="2" placeholder="Describe el logro de aprendizaje..." required></textarea>
+                </div>
+            `;
+            
+            logrosContainer.appendChild(nuevoLogro);
+        });
+
+        // Eliminar logro
+        function eliminarLogro(button) {
+            const logroItem = button.closest('.logro-item');
+            if (document.querySelectorAll('.logro-item').length > 1) {
+                logroItem.remove();
+                // Renumerar los logros restantes
+                const logros = document.querySelectorAll('.logro-item');
+                logros.forEach((logro, index) => {
+                    logro.querySelector('h4').textContent = `Logro ${index + 1}`;
+                });
+                logroCount = logros.length;
+            } else {
+                alert('Debe haber al menos un logro de aprendizaje.');
+            }
+        }
+
+        // Manejo del formulario
+        document.getElementById('perfilForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const button = document.getElementById('btn-siguiente');
+            const originalText = button.innerHTML;
+            
+            // Simular procesamiento
+            button.disabled = true;
+            button.innerHTML = '<div class="loading"></div>Procesando...';
+            
+            setTimeout(function() {
+                // Aquí iría la redirección a la siguiente página
+                alert('Datos de relación con perfil guardados correctamente. Redirigiendo al siguiente paso...');
+                window.location.href = 'estructura_conceptual.html';
+                
+                button.disabled = false;
+                button.innerHTML = originalText;
+            }, 2000);
+        });
+
+        // Guardar cambios
+        document.getElementById('btn-guardar-cambios').addEventListener('click', function() {
+            const button = this;
+            const originalText = button.innerHTML;
+            
+            button.disabled = true;
+            button.innerHTML = '<div class="loading"></div>Guardando...';
+            
+            setTimeout(function() {
+                alert('Cambios guardados exitosamente');
+                button.disabled = false;
+                button.innerHTML = originalText;
+            }, 1500);
+        });
+
+        // Validación en tiempo real
+        const inputs = document.querySelectorAll('textarea[required]');
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.value.trim() === '') {
+                    this.style.borderColor = '#e74c3c';
+                } else {
+                    this.style.borderColor = '#4a90e2';
+                }
+            });
+        });
+
+        // Efectos visuales para radio buttons
+        const radioButtons = document.querySelectorAll('input[type="radio"]');
+        radioButtons.forEach(radio => {
+            radio.addEventListener('change', function() {
+                document.querySelectorAll('.radio-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                this.parentElement.classList.add('selected');
+            });
+        });
+
+        // Efectos visuales del menú
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuItems = document.querySelectorAll('.menu-item');
+            menuItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    if (!this.classList.contains('logout')) {
+                        menuItems.forEach(i => i.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

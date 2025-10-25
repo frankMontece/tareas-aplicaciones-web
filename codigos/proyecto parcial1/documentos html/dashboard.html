@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Sistema de Automatización de Silabos</title>
+    <link rel="stylesheet" href="../documentos css/dashboard_estilos.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Barra lateral de navegación -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>🖥️ Sistema Silabos</h2>
+                <p>Panel del Profesor</p>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li class="menu-item active">
+                    <a href="#">
+                        <span class="icon">📚</span>
+                        <span class="text">Mis Silabos</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="crear_cilabo.html">
+                        <span class="icon">➕</span>
+                        <span class="text">Crear Silabo</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#">
+                        <span class="icon">🔔</span>
+                        <span class="text">Notificaciones</span>
+                        <span class="notification-badge">3</span>
+                    </a>
+                </li>
+                
+                <li class="menu-item logout">
+                    <a href="index_login.html">
+                        <span class="icon">🚪</span>
+                        <span class="text">Cerrar Sesión</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="sidebar-footer">
+                <p>2025 Sistema de Silabos</p>
+                <p>Versión UwUr</p>
+            </div>
+        </nav>
+
+        <!-- Contenido principal -->
+        <main class="main-content">
+            <!-- Header superior -->
+            <header class="top-header">
+                <div class="header-left">
+                    <h1>📊 Mis Silabos</h1>
+                    <p>Gestiona y crea tus silabos académicos</p>
+                </div>
+                <div class="header-right">
+                    <div class="user-info">
+                        <span class="user-name">Prof. QUIROZ PALMA PATRICIA ALEXANDRA </span>
+                        <span class="user-role">Docente - Facultad de ciencias de la vida y tecnologia</span>
+                    </div>
+                    <div class="user-avatar">
+                        <span>QA</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Estadísticas rápidas -->
+            <section class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-icon">📚</div>
+                    <div class="stat-info">
+                        <h3>12</h3>
+                        <p>Silabos Activos</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⏰</div>
+                    <div class="stat-info">
+                        <h3>3</h3>
+                        <p>Pendientes de Revisión</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-info">
+                        <h3>8</h3>
+                        <p>Completados</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📅</div>
+                    <div class="stat-info">
+                        <h3>2</h3>
+                        <p>Próximos a Vencer</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Lista de silabos -->
+            <section class="syllabus-section">
+                <div class="section-header">
+                    <h2>🎯 Lista de Silabos Recientes</h2>
+                    <div class="section-actions">
+                        <a href="crear_cilabo.html" class="btn btn-primary">
+                            <span class="icon">➕</span>
+                            Nuevo Silabo
+                        </a>
+                        <button class="btn btn-secondary">
+                            <span class="icon">🔍</span>
+                            Buscar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="syllabus-grid">
+                    <!-- Tarjeta de silabo 1 -->
+                    <div class="syllabus-card">
+                        <div class="card-header">
+                            <h3>🌐 Programación Web - N4A</h3>
+                            <span class="status-badge active">Activo</span>
+                        </div>
+                        <div class="card-content">
+                            <p><strong>Facultad:</strong> Ingeniería en Sistemas</p>
+                            <p><strong>Período:</strong> 2024-1</p>
+                            <p><strong>Estudiantes:</strong> 45</p>
+                            <p><strong>Última modificación:</strong> 15 Mar 2024</p>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-outline">👁️ Ver</button>
+                            <button class="btn btn-outline">✏️ Editar</button>
+                            <button class="btn btn-outline">📥 Descargar</button>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta de silabo 2 -->
+                    <div class="syllabus-card">
+                        <div class="card-header">
+                            <h3>🗄️ Base de Datos - N2B</h3>
+                            <span class="status-badge pending">Pendiente</span>
+                        </div>
+                        <div class="card-content">
+                            <p><strong>Facultad:</strong> Ingeniería en Sistemas</p>
+                            <p><strong>Período:</strong> 2024-1</p>
+                            <p><strong>Estudiantes:</strong> 38</p>
+                            <p><strong>Última modificación:</strong> 10 Mar 2024</p>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-outline">👁️ Ver</button>
+                            <button class="btn btn-outline">✏️ Editar</button>
+                            <button class="btn btn-outline">📥 Descargar</button>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta de silabo 3 -->
+                    <div class="syllabus-card">
+                        <div class="card-header">
+                            <h3>🤖 Inteligencia Artificial - N6A</h3>
+                            <span class="status-badge completed">Completado</span>
+                        </div>
+                        <div class="card-content">
+                            <p><strong>Facultad:</strong> Ingeniería en Sistemas</p>
+                            <p><strong>Período:</strong> 2023-2</p>
+                            <p><strong>Estudiantes:</strong> 32</p>
+                            <p><strong>Última modificación:</strong> 20 Dic 2023</p>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-outline">👁️ Ver</button>
+                            <button class="btn btn-outline">✏️ Editar</button>
+                            <button class="btn btn-outline">📥 Descargar</button>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta de silabo 4 -->
+                    <div class="syllabus-card">
+                        <div class="card-header">
+                            <h3>🌐 Redes de Computadoras - N5B</h3>
+                            <span class="status-badge active">Activo</span>
+                        </div>
+                        <div class="card-content">
+                            <p><strong>Facultad:</strong> Ingeniería en Sistemas</p>
+                            <p><strong>Período:</strong> 2024-1</p>
+                            <p><strong>Estudiantes:</strong> 40</p>
+                            <p><strong>Última modificación:</strong> 12 Mar 2024</p>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-outline">👁️ Ver</button>
+                            <button class="btn btn-outline">✏️ Editar</button>
+                            <button class="btn btn-outline">📥 Descargar</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Funcionalidad básica del dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            // Activar elementos del menú al hacer clic
+            const menuItems = document.querySelectorAll('.menu-item');
+            menuItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    if (!this.classList.contains('logout')) {
+                        menuItems.forEach(i => i.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                });
+            });
+
+            // Efectos hover mejorados para tarjetas
+            const cards = document.querySelectorAll('.syllabus-card, .stat-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

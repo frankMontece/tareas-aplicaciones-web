@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar Código - Sistema de Silabos</title>
+    <link rel="stylesheet" href="../documentos css/verificar_codigo_estilos.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-form">
+            <div class="back-button">
+                <a href="recuperar_contrasena.html">&larr; Volver atrás</a>
+            </div>
+            
+            <h1>Verificar Código</h1>
+            <p class="subtitle">Ingresa el código de 4 dígitos que enviamos a tu correo</p>
+            
+            <form id="verificationForm">
+                <div class="form-group">
+                    <label for="verification-code">Código de Verificación</label>
+                    <div class="code-inputs">
+                        <input type="text" id="digit1" name="digit1" maxlength="1" required 
+                            oninput="moveToNext(this, 'digit2')" onkeypress="return onlyNumbers(event)">
+                        <input type="text" id="digit2" name="digit2" maxlength="1" required 
+                            oninput="moveToNext(this, 'digit3')" onkeypress="return onlyNumbers(event)">
+                        <input type="text" id="digit3" name="digit3" maxlength="1" required 
+                            oninput="moveToNext(this, 'digit4')" onkeypress="return onlyNumbers(event)">
+                        <input type="text" id="digit4" name="digit4" maxlength="1" required 
+                            oninput="moveToNext(this, 'verify-btn')" onkeypress="return onlyNumbers(event)">
+                    </div>
+                </div>
+                
+                <button type="submit" class="login-btn" id="verify-btn">
+                    <span class="btn-text">Verificar Código</span>
+                </button>
+            </form>
+            
+            <div class="resend-section">
+                <p>¿No recibiste el código?</p>
+                <button type="button" class="resend-btn" id="resend-btn">
+                    Reenviar código
+                </button>
+                <div id="countdown" class="countdown"></div>
+            </div>
+            
+            <footer>
+                <p>2025 Sistema de Automatización de Silabos.</p>
+                <p>verificación de codigo</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Función para mover al siguiente campo automáticamente
+        function moveToNext(current, nextId) {
+            if (current.value.length === 1) {
+                document.getElementById(nextId).focus();
+            }
+        }
+
+        // Función para permitir solo números
+        function onlyNumbers(event) {
+            const charCode = event.which ? event.which : event.keyCode;
+            if (charCode < 48 || charCode > 57) {
+                event.preventDefault();
+                return false;
+            }
+            return true;
+        }
+
+        // Manejo del envío del formulario
+        document.getElementById('verificationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const button = this.querySelector('.login-btn');
+            const buttonText = button.querySelector('.btn-text');
+            
+            // Obtener el código completo
+            const digit1 = document.getElementById('digit1').value;
+            const digit2 = document.getElementById('digit2').value;
+            const digit3 = document.getElementById('digit3').value;
+            const digit4 = document.getElementById('digit4').value;
+            const code = digit1 + digit2 + digit3 + digit4;
+            
+            // Validar que todos los dígitos estén completos
+            if (code.length !== 4) {
+                alert('Por favor, ingresa los 4 dígitos del código');
+                return;
+            }
+
+            // Simular verificación
+            button.disabled = true;
+            buttonText.textContent = 'Verificando...';
+            button.innerHTML = '<div class="loading"></div>Verificando...';
+
+            setTimeout(function() {
+                // Simular verificación exitosa
+                button.disabled = false;
+                button.innerHTML = '<span class="btn-text">Código Verificado</span>';
+                
+                // Redirigir a la página de nueva contraseña
+                setTimeout(function() {
+                    window.location.href = 'nueva_contrasena.html?code=' + code;
+                }, 1500);
+                
+            }, 2000);
+        });
+
+        // Manejo del reenvío de código
+        document.getElementById('resend-btn').addEventListener('click', function() {
+            const resendBtn = this;
+            const countdown = document.getElementById('countdown');
+            
+            resendBtn.disabled = true;
+            resendBtn.textContent = 'Reenviando...';
+            
+            setTimeout(function() {
+                resendBtn.textContent = 'Código reenviado';
+                countdown.textContent = 'Puedes solicitar otro código en 60 segundos';
+                
+                // Contador de 60 segundos
+                let timeLeft = 60;
+                const timer = setInterval(function() {
+                    countdown.textContent = `Puedes solicitar otro código en ${timeLeft} segundos`;
+                    timeLeft--;
+                    
+                    if (timeLeft < 0) {
+                        clearInterval(timer);
+                        resendBtn.disabled = false;
+                        resendBtn.textContent = 'Reenviar código';
+                        countdown.textContent = '';
+                    }
+                }, 1000);
+                
+            }, 1500);
+        });
+
+        // Auto-focus en el primer campo al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('digit1').focus();
+        });
+    </script>
+</body>
+</html>

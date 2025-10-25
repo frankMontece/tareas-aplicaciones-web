@@ -1,0 +1,120 @@
+.bibliografia-section {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            border: 1px solid #333;
+        }
+
+        .seccion-header {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .seccion-header h3 {
+            color: #4a90e2;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .seccion-descripcion {
+            color: #b0b0b0;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .referencia-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #1a1a1a;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+
+        .referencia-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #333;
+        }
+
+        .referencia-header h4 {
+            color: #4a90e2;
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .referencia-content {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group-dual {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 15px;
+        }
+
+        .resumen-referencias {
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(74, 144, 226, 0.1);
+            border-radius: 8px;
+            border: 1px solid #4a90e2;
+        }
+
+        .resumen-referencias h4 {
+            color: #4a90e2;
+            font-size: 16px;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .resumen-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .resumen-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            background: #1a1a1a;
+            border-radius: 6px;
+            border: 1px solid #333;
+        }
+
+        .resumen-tipo {
+            color: #b0b0b0;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .resumen-valor {
+            color: #4a90e2;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .form-group-dual {
+                grid-template-columns: 1fr;
+            }
+            
+            .resumen-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .referencia-header {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }

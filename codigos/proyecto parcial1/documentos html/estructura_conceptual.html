@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estructura Conceptual - Sistema de Automatización</title>
+    <link rel="stylesheet" href="../documentos css/estructura_conceptual_estilos.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Barra lateral de navegación -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>🖥️ Sistema Silabos</h2>
+                <p>Panel del Profesor</p>
+            </div>
+
+            <ul class="sidebar-menu">
+                <li class="menu-item">
+                    <a href="dashboard.html">
+                        <span class="icon">📚</span>
+                        <span class="text">Mis Silabos</span>
+                    </a>
+                </li>
+                <li class="menu-item active">
+                    <a href="#">
+                        <span class="icon">➕</span>
+                        <span class="text">Crear Silabo</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#">
+                        <span class="icon">🔔</span>
+                        <span class="text">Notificaciones</span>
+                        <span class="notification-badge">3</span>
+                    </a>
+                </li>
+
+                <li class="menu-item logout">
+                    <a href="index_login.html">
+                        <span class="icon">🚪</span>
+                        <span class="text">Cerrar Sesión</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <p>2025 Sistema de Silabos</p>
+                <p>VersiónUwUr</p>
+            </div>
+        </nav>
+
+        <!-- Contenido principal -->
+        <main class="main-content">
+            <!-- Header superior -->
+            <header class="top-header">
+                <div class="header-left">
+                    <h1>📝 Crear Nuevo Silabo</h1>
+                    <p>Configuración de la Estructura Conceptual</p>
+                </div>
+                <div class="header-right">
+                    <div class="user-info">
+                        <span class="user-name">Prof. QUIROZ PALMA PATRICIA ALEXANDRA</span>
+                        <span class="user-role">Docente - Facultad de ciencias de la vida y tecnologia</span>
+                    </div>
+                    <div class="user-avatar">
+                        <span>QA</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Progreso del formulario -->
+            <section class="progress-section">
+                <div class="progress-steps">
+                    <div class="step completed">
+                        <span class="step-number">✓</span>
+                        <span class="step-text">Datos Generales</span>
+                    </div>
+                    <div class="step completed">
+                        <span class="step-number">✓</span>
+                        <span class="step-text">Relación con Perfil</span>
+                    </div>
+                    <div class="step active">
+                        <span class="step-number">3</span>
+                        <span class="step-text">Estructura Conceptual</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <span class="step-text">bibliografia</span>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Formulario de estructura conceptual -->
+            <section class="form-section">
+                <div class="form-container">
+                    <h2>🏗️ CONFIGURACIÓN DE UNIDADES DE APRENDIZAJE</h2>
+
+                    <form id="estructuraForm">
+                        <!-- Unidad de Aprendizaje 1 -->
+                        <div class="unidad-section">
+                            <div class="unidad-header">
+                                <h3>📖 UNIDAD 1: FUNDAMENTOS DE PROGRAMACION WEB</h3>
+                                <button type="button" class="btn-eliminar" onclick="eliminarUnidad(this)">🗑️</button>
+                            </div>
+
+                            <div class="unidad-content">
+                                <div class="form-group">
+                                    <label for="resultado-unidad1">Resultado de Aprendizaje *</label>
+                                    <textarea id="resultado-unidad1" name="resultado-unidad1" rows="2"
+                                        placeholder="Ej: Identifica y aplica los estándares..." required></textarea>
+                                </div>
+
+                                <div class="fechas-container">
+                                    <div class="form-group">
+                                        <label for="fecha-inicio1">Fecha Inicio *</label>
+                                        <input type="date" id="fecha-inicio1" name="fecha-inicio1" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="fecha-fin1">Fecha Fin *</label>
+                                        <input type="date" id="fecha-fin1" name="fecha-fin1" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Contenidos y Actividades - Unidad 1 -->
+                            <div class="contenidos-section">
+                                <h4>📋 CONTENIDOS Y ACTIVIDADES - UNIDAD 1</h4>
+
+                                <div class="tabla-contenidos">
+                                    <div class="tabla-header">
+                                        <div class="tabla-col">CONTENIDOS</div>
+                                        <div class="tabla-col">PROCESOS DIDÁCT.</div>
+                                        <div class="tabla-col">RECURSOS</div>
+                                        <div class="tabla-col">ESCENARIO</div>
+                                        <div class="tabla-col">HORAS</div>
+                                        <div class="tabla-col">ACCIONES</div>
+                                    </div>
+
+                                    <div class="tabla-row">
+                                        <div class="tabla-col">
+                                            <input type="text" placeholder="1.1. Fundamentos de Programación Web"
+                                                required>
+                                        </div>
+                                        <div class="tabla-col">
+                                            <select required>
+                                                <option value="">Seleccionar</option>
+                                                <option value="conferencia">Conferencia</option>
+                                                <option value="taller">Taller</option>
+                                                <option value="laboratorio">Laboratorio</option>
+                                            </select>
+                                        </div>
+                                        <div class="tabla-col">
+                                            <input type="text" placeholder="Guía Práctica" required>
+                                        </div>
+                                        <div class="tabla-col">
+                                            <input type="text" placeholder="Aula de clases" required>
+                                        </div>
+                                        <div class="tabla-col">
+                                            <input type="number" placeholder="4" min="1" required>
+                                        </div>
+                                        <div class="tabla-col">
+                                            <button type="button" class="btn-eliminar-pequeno"
+                                                onclick="eliminarContenido(this)">🗑️</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="button" class="btn btn-outline" onclick="agregarContenido(this)">
+                                    ➕ Agregar Contenido
+                                </button>
+                            </div>
+
+                            <!-- Actividades Prácticas - Unidad 1 -->
+                            <div class="actividades-section">
+                                <h4>🔧 ACTIVIDADES PRÁCTICAS - UNIDAD 1</h4>
+
+                                <div class="tabla-actividades">
+                                    <div class="tabla-header">
+                                        <div class="tabla-col">ACTIVIDAD</div>
+                                        <div class="tabla-col">ESCENARIO</div>
+                                        <div class="tabla-col">HORAS</div>
+                                        <div class="tabla-col">ACCIONES</div>
+                                    </div>
+
+                                    <div class="tabla-row">
+                                        <div class="tabla-col">
+                                            <input type="text" placeholder="Maquetado de página web" required>
+                                        </div>
+                                        <div class="tabla-col">
+                                            <input type="text" placeholder="Laboratorio especializado" required>
+                                        </div>
+                                        <div class="tabla-col">
+                                            <input type="number" placeholder="4" min="1" required>
+                                        </div>
+                                        <div class="tabla-col">
+                                            <button type="button" class="btn-eliminar-pequeno"
+                                                onclick="eliminarActividad(this)">🗑️</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="button" class="btn btn-outline" onclick="agregarActividad(this)">
+                                    ➕ Agregar Actividad Práctica
+                                </button>
+                            </div>
+
+                            <!-- Aprendizaje Autónomo - Unidad 1 -->
+                            <div class="autonomo-section">
+                                <h4>📚 APRENDIZAJE AUTÓNOMO - UNIDAD 1</h4>
+
+                                <div class="tabla-autonomo">
+                                    <div class="tabla-header">
+                                        <div class="tabla-col">ACTIVIDAD</div>
+                                        <div class="tabla-col">HORAS</div>
+                                        <div class="tabla-col">ACCIONES</div>
+                                    </div>
+
+                                    <div class="tabla-row">
+                                        <div class="tabla-col">
+                                            <input type="text" placeholder="Trabajo de Investigación formativa: HTML..."
+                                                required>
+                                        </div>
+                                        <div class="tabla-col">
+                                            <input type="number" placeholder="4" min="1" required>
+                                        </div>
+                                        <div class="tabla-col">
+                                            <button type="button" class="btn-eliminar-pequeno"
+                                                onclick="eliminarAutonomo(this)">🗑️</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="button" class="btn btn-outline" onclick="agregarAutonomo(this)">
+                                    ➕ Agregar Actividad Autónoma
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Botones de acción -->
+                        <div class="form-actions">
+                            <a href="datos_perfil.html" class="btn btn-secondary">
+                                ⬅️ Anterior
+                            </a>
+                            <div class="action-buttons">
+                                <button type="button" class="btn btn-secondary" id="btn-agregar-unidad">
+                                    ➕ Agregar Nueva Unidad
+                                </button>
+                                <button type="submit" class="btn btn-primary" id="btn-siguiente">
+                                    ➡️ Siguiente: Sistema de Evaluación
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+        <script src="../documentos javascript/estructura_conceptual.js "></script>
+</body>
+
+</html>

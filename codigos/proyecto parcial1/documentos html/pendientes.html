@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Silabos Pendientes</title>
+    <link rel="stylesheet" href="../documentos css/pendientes.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Barra lateral de navegación -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>🖥️ Sistema Silabos</h2>
+                <p>Panel de Revisión</p>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li class="menu-item active">
+                    <a href="revision.html">
+                        <span class="icon">📋</span>
+                        <span class="text">Silabos Pendientes</span>
+                        <span class="notification-badge">15</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#">
+                        <span class="icon">✅</span>
+                        <span class="text">Silabos Aprobados</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#">
+                        <span class="icon">❌</span>
+                        <span class="text">Silabos Rechazados</span>
+                    </a>
+                </li>
+                
+                <li class="menu-item logout">
+                    <a href="index_login.html">
+                        <span class="icon">🚪</span>
+                        <span class="text">Cerrar Sesión</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="sidebar-footer">
+                <p>2025 Sistema de Silabos</p>
+                <p>Versión 2.0</p>
+            </div>
+        </nav>
+
+        <!-- Contenido principal -->
+        <main class="main-content">
+            <!-- Header superior -->
+            <header class="top-header">
+                <div class="header-left">
+                    <h1>📋 Silabos Pendientes de Revisión</h1>
+                    <p>Panel de Decanato / Comisión Académica</p>
+                </div>
+                <div class="header-right">
+                    <div class="user-info">
+                        <span class="user-name">Dr. Carlos Mendoza</span>
+                        <span class="user-role">Decano - Facultad de Ciencias</span>
+                    </div>
+                    <div class="user-avatar">
+                        <span>CM</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Filtros y búsqueda -->
+            <section class="filters-section">
+                <div class="filters-container">
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="🔍 Buscar por código, docente o materia...">
+                    </div>
+                    <div class="filter-controls">
+                        <select id="facultadFilter" class="filter-select">
+                            <option value="">Todas las Facultades</option>
+                            <option value="Sistemas">Ingeniería en Sistemas</option>
+                            <option value="Civil">Ingeniería Civil</option>
+                            <option value="Industrial">Ingeniería Industrial</option>
+                            <option value="Administración">Administración</option>
+                        </select>
+                        <select id="periodoFilter" class="filter-select">
+                            <option value="">Todos los Periodos</option>
+                            <option value="2025-2">2025-2</option>
+                            <option value="2025-1">2025-1</option>
+                            <option value="2024-2">2024-2</option>
+                        </select>
+                        <select id="estadoFilter" class="filter-select">
+                            <option value="">Todos los Estados</option>
+                            <option value="pendiente">Pendiente</option>
+                            <option value="urgente">Urgente</option>
+                            <option value="revision">En Revisión</option>
+                        </select>
+                        <button id="resetFilters" class="btn btn-secondary">🔄 Limpiar</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Estadísticas rápidas -->
+            <section class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-icon">⏰</div>
+                    <div class="stat-info">
+                        <h3 id="totalPendientes">15</h3>
+                        <p>Total Pendientes</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🚨</div>
+                    <div class="stat-info">
+                        <h3 id="totalUrgentes">3</h3>
+                        <p>Urgentes</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📅</div>
+                    <div class="stat-info">
+                        <h3 id="proximaSemana">5</h3>
+                        <p>Vencen esta semana</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⏳</div>
+                    <div class="stat-info">
+                        <h3 id="promedioDias">2.3</h3>
+                        <p>Días promedio</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Lista de silabos pendientes -->
+            <section class="syllabus-section">
+                <div class="section-header">
+                    <h2>📚 Lista de Silabos Pendientes (<span id="contadorSilabos">15</span>)</h2>
+                    <div class="section-actions">
+                        <button id="exportBtn" class="btn btn-secondary">
+                            <span class="icon">📤</span>
+                            Exportar Lista
+                        </button>
+                        <button id="refreshBtn" class="btn btn-secondary">
+                            <span class="icon">🔄</span>
+                            Actualizar
+                        </button>
+                    </div>
+                </div>
+
+                <div id="syllabusGrid" class="syllabus-grid">
+                    <!-- Los silabos se cargarán dinámicamente con JavaScript -->
+                </div>
+
+                <!-- Paginación -->
+                <div class="pagination">
+                    <button id="prevPage" class="btn btn-outline">◀ Anterior</button>
+                    <span class="page-info">Página <span id="currentPage">1</span> de <span id="totalPages">2</span></span>
+                    <button id="nextPage" class="btn btn-outline">Siguiente ▶</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal para detalles del silabo -->
+    <div id="syllabusModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Detalles del Silabo</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <!-- Contenido cargado dinámicamente -->
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-outline" id="closeModalBtn">Cerrar</button>
+                <button class="btn btn-primary" id="reviewModalBtn">📝 aprobar silabo</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../documentos javascript/pendientes.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Contraseña - Sistema de Silabos</title>
+    <link rel="stylesheet" href="../documentos css/recuperar_contrasena_estilos.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-form">
+            <div class="back-button">
+                <a href="index_login.html">&larr; Volver al login</a>
+            </div>
+            
+            <h1>Recuperar Contraseña</h1>
+            <p class="subtitle">Ingresa tu correo institucional para recibir un código de verificación</p>
+            
+            <form id="recoveryForm">
+                <div class="form-group">
+                    <label for="recovery-email">Correo Institucional</label>
+                    <input type="email" id="recovery-email" name="email" required 
+                        placeholder="usuario@uleam.edu.ec">
+                </div>
+                
+                <button type="submit" class="login-btn">
+                    <span class="btn-text">Recibir Código</span>
+                </button>
+            </form>
+            
+            <div class="recovery-steps">
+                <h3>Proceso de recuperación:</h3>
+                <ol>
+                    <li>Ingresa tu correo institucional registrado</li>
+                    <li>Recibirás un código de verificación por correo</li>
+                    <li>Ingresa el código en la siguiente pantalla</li>
+                    <li>Crea tu nueva contraseña segura</li>
+                </ol>
+            </div>
+            
+            <footer>
+                <p>2025 Sistema de Automatización de Silabos.</p>
+                <p>recuperación de contraseña</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('recoveryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const button = this.querySelector('.login-btn');
+            const buttonText = button.querySelector('.btn-text');
+            const email = document.getElementById('recovery-email').value;
+            
+            // Simular envío de código
+            button.disabled = true;
+            buttonText.textContent = 'Enviando código...';
+            button.innerHTML = '<div class="loading"></div>Enviando código...';
+            
+            setTimeout(function() {
+                button.disabled = false;
+                button.innerHTML = '<span class="btn-text">Código Enviado</span>';
+                
+                // Redirigir a la página de verificación de código después de 2 segundos
+                setTimeout(function() {
+                    window.location.href = 'verificar_codigo.html?email=' + encodeURIComponent(email);
+                }, 2000);
+                
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

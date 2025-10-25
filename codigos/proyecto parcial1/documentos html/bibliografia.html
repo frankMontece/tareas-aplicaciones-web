@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibliografía - Sistema de Automatización</title>
+    <link rel="stylesheet" href="../documentos css/estructura_conceptual_estilos.css">
+    <link rel="stylesheet" href="../documentos css/bibliografia_estilos.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Barra lateral de navegación -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>🖥️ Sistema Silabos</h2>
+                <p>Panel del Profesor</p>
+            </div>
+
+            <ul class="sidebar-menu">
+                <li class="menu-item">
+                    <a href="dashboard.html">
+                        <span class="icon">📚</span>
+                        <span class="text">Mis Silabos</span>
+                    </a>
+                </li>
+                <li class="menu-item active">
+                    <a href="#">
+                        <span class="icon">➕</span>
+                        <span class="text">Crear Silabo</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#">
+                        <span class="icon">🔔</span>
+                        <span class="text">Notificaciones</span>
+                        <span class="notification-badge">3</span>
+                    </a>
+                </li>
+
+                <li class="menu-item logout">
+                    <a href="index_login.html">
+                        <span class="icon">🚪</span>
+                        <span class="text">Cerrar Sesión</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <p>2025 Sistema de Silabos</p>
+                <p>VersiónUwUr</p>
+            </div>
+        </nav>
+
+        <!-- Contenido principal -->
+        <main class="main-content">
+            <!-- Header superior -->
+            <header class="top-header">
+                <div class="header-left">
+                    <h1>📚 Configurar Bibliografía</h1>
+                    <p>Gestione las referencias bibliográficas básicas y web del sílabo</p>
+                </div>
+                <div class="header-right">
+                    <div class="user-info">
+                        <span class="user-name">Prof. QUIROZ PALMA PATRICIA ALEXANDRA</span>
+                        <span class="user-role">Docente - Facultad de ciencias de la vida y tecnologia</span>
+                    </div>
+                    <div class="user-avatar">
+                        <span>QA</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Progreso del formulario -->
+            <section class="progress-section">
+                <div class="progress-steps">
+                    <div class="step completed">
+                        <span class="step-number">✓</span>
+                        <span class="step-text">Datos Generales</span>
+                    </div>
+                    <div class="step completed">
+                        <span class="step-number">✓</span>
+                        <span class="step-text">Relación con Perfil</span>
+                    </div>
+                    <div class="step completed">
+                        <span class="step-number">✓</span>
+                        <span class="step-text">Estructura Conceptual</span>
+                    </div>
+                    <div class="step active">
+                        <span class="step-number">4</span>
+                        <span class="step-text">Bibliografía</span>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Formulario de bibliografía -->
+            <section class="form-section">
+                <div class="form-container">
+                    <h2>📖 CONFIGURACIÓN DE BIBLIOGRAFÍA</h2>
+
+                    <form id="bibliografiaForm">
+                        <!-- Sección Bibliografía Básica -->
+                        <div class="bibliografia-section">
+                            <div class="seccion-header">
+                                <h3>📚 Bibliografía Básica</h3>
+                                <p class="seccion-descripcion">Textos fundamentales para el desarrollo del curso</p>
+                            </div>
+
+                            <!-- Referencia 1 -->
+                            <div class="referencia-item">
+                                <div class="referencia-header">
+                                    <h4>Referencia 1</h4>
+                                    <button type="button" class="btn-eliminar"
+                                        onclick="eliminarReferencia(this, 'basica')">🗑️</button>
+                                </div>
+
+                                <div class="referencia-content">
+                                    <div class="form-group">
+                                        <label for="autor1">Autor(es):</label>
+                                        <input type="text" id="autor1" name="autor1"
+                                            placeholder="Ej: Granada, D., López, S. M., & Vara, M. J. M.">
+                                    </div>
+
+                                    <div class="form-group-dual">
+                                        <div class="form-group">
+                                            <label for="anio1">Año:</label>
+                                            <input type="number" id="anio1" name="anio1" placeholder="Ej: 2015"
+                                                min="1900" max="2030">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="titulo1">Título:</label>
+                                            <input type="text" id="titulo1" name="titulo1"
+                                                placeholder="Ej: Desarrollo web en entorno cliente">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="fuente1">Fuente/Editorial:</label>
+                                        <input type="text" id="fuente1" name="fuente1"
+                                            placeholder="Ej: Obtenido de https://elibro.net/es/ereader/uleam/62488">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Botón para agregar más referencias básicas -->
+                            <button type="button" class="btn btn-outline" onclick="agregarReferenciaBasica()">
+                                ➕ Agregar Referencia Básica
+                            </button>
+                        </div>
+
+                        <!-- Sección Bibliografía Web -->
+                        <div class="bibliografia-section" style="margin-top: 40px;">
+                            <div class="seccion-header">
+                                <h3>🌐 Bibliografía Web</h3>
+                                <p class="seccion-descripcion">Recursos en línea y referencias digitales</p>
+                            </div>
+
+                            <!-- Referencia Web 1 -->
+                            <div class="referencia-item">
+                                <div class="referencia-header">
+                                    <h4>Referencia Web 1</h4>
+                                    <button type="button" class="btn-eliminar"
+                                        onclick="eliminarReferencia(this, 'web')">🗑️</button>
+                                </div>
+
+                                <div class="referencia-content">
+                                    <div class="form-group">
+                                        <label for="web-autor1">Autor(es) o Organización:</label>
+                                        <input type="text" id="web-autor1" name="web-autor1"
+                                            placeholder="Ej: Mozilla Developer Network">
+                                    </div>
+
+                                    <div class="form-group-dual">
+                                        <div class="form-group">
+                                            <label for="web-anio1">Año de publicación/actualización:</label>
+                                            <input type="number" id="web-anio1" name="web-anio1" placeholder="Ej: 2024"
+                                                min="1900" max="2030">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="web-titulo1">Título del recurso:</label>
+                                            <input type="text" id="web-titulo1" name="web-titulo1"
+                                                placeholder="Ej: Guía de HTML para desarrolladores">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="web-url1">URL:</label>
+                                        <input type="url" id="web-url1" name="web-url1"
+                                            placeholder="Ej: https://developer.mozilla.org/es/docs/Web/HTML">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="web-fecha-acceso1">Fecha de acceso:</label>
+                                        <input type="date" id="web-fecha-acceso1" name="web-fecha-acceso1">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Botón para agregar más referencias web -->
+                            <button type="button" class="btn btn-outline" onclick="agregarReferenciaWeb()">
+                                ➕ Agregar Referencia Web
+                            </button>
+                        </div>
+
+                        <!-- Botones de acción -->
+                        <div class="form-actions">
+                            <a href="estructura_conceptual.html" class="btn btn-secondary">
+                                ⬅️ Anterior
+                            </a>
+                            <div class="action-buttons">
+                                <button type="button" class="btn btn-secondary" onclick="limpiarFormulario()">
+                                    🗑️ Limpiar Todo
+                                </button>
+                                <button type="submit" class="btn btn-primary" id="btn-guardar">
+                                    💾 Guardar y Finalizar
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+
+    <script src="../documentos javascript/bibliografia_script.js" defer></script>
+</body>
+
+</html>

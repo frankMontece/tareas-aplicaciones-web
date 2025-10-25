@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Silabo - Sistema de Automatización</title>
+    <link rel="stylesheet" href="../documentos css/crear_cilabo_estilos.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Barra lateral de navegación -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>🖥️ Sistema Silabos</h2>
+                <p>Panel del Profesor</p>
+            </div>
+
+            <ul class="sidebar-menu">
+                <li class="menu-item">
+                    <a href="dashboard.html">
+                        <span class="icon">📚</span>
+                        <span class="text">Mis Silabos</span>
+                    </a>
+                </li>
+                <li class="menu-item active">
+                    <a href="#">
+                        <span class="icon">➕</span>
+                        <span class="text">Crear Silabo</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#">
+                        <span class="icon">🔔</span>
+                        <span class="text">Notificaciones</span>
+                        <span class="notification-badge">3</span>
+                    </a>
+                </li>
+
+                <li class="menu-item logout">
+                    <a href="index_login.html">
+                        <span class="icon">🚪</span>
+                        <span class="text">Cerrar Sesión</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <p>2025 Sistema de Silabos</p>
+                <p>Versión UwUr</p>
+            </div>
+        </nav>
+
+        <!-- Contenido principal -->
+        <main class="main-content">
+            <!-- Header superior -->
+            <header class="top-header">
+                <div class="header-left">
+                    <h1>📝 Crear Nuevo Silabo</h1>
+                    <p>Complete los datos generales de la asignatura</p>
+                </div>
+                <div class="header-right">
+                    <div class="user-info">
+                        <span class="user-name">Prof.QUIROZ PALMA PATRICIA ALEXANDRA</span>
+                        <span class="user-role">Docente - Facultad de ciencias de la vida y tecnologia</span>
+                    </div>
+                    <div class="user-avatar">
+                        <span>QA</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Progreso del formulario -->
+            <section class="progress-section">
+                <div class="progress-steps">
+                    <div class="step active">
+                        <span class="step-number">1</span>
+                        <span class="step-text">Datos Generales</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <span class="step-text">Relación con Perfil</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <span class="step-text">Contenidos</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <span class="step-text">bibliografia</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Formulario de datos generales -->
+            <section class="form-section">
+                <div class="form-container">
+                    <h2>📋 DATOS GENERALES DE LA ASIGNATURA</h2>
+
+                    <form id="silaboForm">
+                        <div class="form-grid">
+                            <!-- Columna 1 -->
+                            <div class="form-column">
+                                <div class="form-group">
+                                    <label for="nombre-asignatura">Nombre de la Asignatura *</label>
+                                    <input type="text" id="nombre-asignatura" name="nombre-asignatura"
+                                        placeholder="Ej: TDI-503 - APLICACIONES WEB I" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="unidad-academica">Unidad Académica *</label>
+                                    <input type="text" id="unidad-academica" name="unidad-academica"
+                                        placeholder="Ej: Ciencias de la Vida y Tecnologías" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="carrera">Carrera *</label>
+                                    <input type="text" id="carrera" name="carrera"
+                                        placeholder="Ej: Tecnologías de la Información 2024" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="unidad-curricular">Unidad Curricular *</label>
+                                    <input type="text" id="unidad-curricular" name="unidad-curricular"
+                                        placeholder="Ej: Unidad Profesional" required>
+                                </div>
+                            </div>
+
+                            <!-- Columna 2 -->
+                            <div class="form-column">
+                                <div class="form-group">
+                                    <label for="periodo">Período Académico *</label>
+                                    <input type="text" id="periodo" name="periodo" placeholder="Ej: 2025-2" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="nivel">Nivel *</label>
+                                    <input type="text" id="nivel" name="nivel" placeholder="Ej: 5" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="paralelo">Paralelo *</label>
+                                    <input type="text" id="paralelo" name="paralelo" placeholder="Ej: A" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="docente">Docente Responsable *</label>
+                                    <input type="text" id="docente" name="docente"
+                                        placeholder="Ej: Quiroz Palma Patricia Alexandra" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sección de organización del tiempo -->
+                        <div class="time-section">
+                            <h3>⏰ ORGANIZACIÓN DEL TIEMPO (Horas-Créditos)</h3>
+
+                            <div class="time-grid">
+                                <div class="time-header">
+                                    <div class="time-cell"></div>
+                                    <div class="time-cell">Con Docente</div>
+                                    <div class="time-cell">Práctica</div>
+                                    <div class="time-cell">Autónomo</div>
+                                </div>
+
+                                <div class="time-row">
+                                    <div class="time-cell">Horas</div>
+                                    <div class="time-cell">
+                                        <input type="text" id="horas-docente" name="horas-docente" placeholder="43.00"
+                                            required>
+                                    </div>
+                                    <div class="time-cell">
+                                        <input type="text" id="horas-practica" name="horas-practica" placeholder="0.00">
+                                    </div>
+                                    <div class="time-cell">
+                                        <input type="text" id="horas-autonomo" name="horas-autonomo" placeholder="0.00">
+                                    </div>
+                                </div>
+
+                                <div class="time-row">
+                                    <div class="time-cell">Créditos</div>
+                                    <div class="time-cell">
+                                        <input type="text" id="creditos" name="creditos" placeholder="3.00" required>
+                                    </div>
+                                    <div class="time-cell"></div>
+                                    <div class="time-cell"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Botones de acción -->
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" id="btn-borrador">
+                                💾 Guardar Borrador
+                            </button>
+                            <button type="submit" class="btn btn-primary" id="btn-siguiente">
+                                ➡️ Siguiente: Relación con Perfil de Egreso
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Manejo del formulario
+        document.getElementById('silaboForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const button = document.getElementById('btn-siguiente');
+            const originalText = button.innerHTML;
+
+            // Simular procesamiento
+            button.disabled = true;
+            button.innerHTML = '<div class="loading"></div>Procesando...';
+
+            setTimeout(function () {
+                // Aquí iría la redirección a la siguiente página
+                alert('Datos guardados correctamente. Redirigiendo al siguiente paso...');
+                window.location.href = 'datos_perfil.html';
+
+                button.disabled = false;
+                button.innerHTML = originalText;
+            }, 2000);
+        });
+
+        // Guardar borrador
+        document.getElementById('btn-borrador').addEventListener('click', function () {
+            const button = this;
+            const originalText = button.innerHTML;
+
+            button.disabled = true;
+            button.innerHTML = '<div class="loading"></div>Guardando...';
+
+            setTimeout(function () {
+                alert('Borrador guardado exitosamente');
+                button.disabled = false;
+                button.innerHTML = originalText;
+            }, 1500);
+        });
+    </script>
+</body>
+
+</html>

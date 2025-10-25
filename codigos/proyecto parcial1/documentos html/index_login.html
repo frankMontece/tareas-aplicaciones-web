@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sistema de Automatización de Silabos</title>
+    <link rel="stylesheet" href="../documentos css/login_estilo.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-form">
+            <h1>INICIO DE SESION</h1>
+            <p class="subtitle">Sistema de Automatización de Silabos</p>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Correo Institucional</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                
+                <div class="form-options">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember" name="remember">
+                        <label for="remember">recordarme</label>
+                    </div>
+                    <a href="recuperar_contrasena.html" class="forgot-password">¿Olvidaste tu contraseña?</a>
+                </div>
+                
+                <button type="submit" class="login-btn">Ingresar al sistema</button>
+            </form>
+            
+            <footer>
+                <p>&copy; 2025 Sistema de Automatización de Silabos</p>
+                <p>Todos los derechos reservados</p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="../documentos javascript/login_script.js"></script>
+</body>
+</html>
