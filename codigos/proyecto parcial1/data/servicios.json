@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "nombre": "Desarrollo Web Full Stack",
+        "descripcion": "Desarrollo completo de aplicaciones web con React, Node.js y MongoDB",
+        "precio": 1200,
+        "precioOferta": 999,
+        "categoria": "Desarrollo",
+        "duracion": "2 meses",
+        "popular": true,
+        "caracteristicas": ["Diseño responsive", "Base de datos", "API REST", "Despliegue"],
+        "imagen": "web-dev.jpg"
+    },
+    {
+        "id": 2, 
+        "nombre": "Diseño UI/UX Profesional",
+        "descripcion": "Diseño de interfaces modernas y experiencia de usuario optimizada",
+        "precio": 800,
+        "precioOferta": null,
+        "categoria": "Diseño",
+        "duracion": "1 mes",
+        "popular": true,
+        "caracteristicas": ["Wireframes", "Prototipado", "Test de usabilidad", "Design System"],
+        "imagen": "ui-ux.jpg"
+    },
+    {
+        "id": 3,
+        "nombre": "Consultoría SEO Avanzada",
+        "descripcion": "Optimización completa para motores de búsqueda y análisis de competencia",
+        "precio": 600,
+        "precioOferta": 450,
+        "categoria": "Marketing",
+        "duracion": "3 semanas",
+        "popular": false,
+        "caracteristicas": ["Keyword research", "Auditoría técnica", "Link building", "Analytics"],
+        "imagen": "seo.jpg"
+    },
+    {
+        "id": 4,
+        "nombre": "Mantenimiento Web Mensual",
+        "descripcion": "Soporte técnico continuo, actualizaciones y backups automáticos",
+        "precio": 150,
+        "precioOferta": null,
+        "categoria": "Soporte",
+        "duracion": "Mensual",
+        "popular": false,
+        "caracteristicas": ["Backups diarios", "Monitorización", "Soporte 24/7", "Actualizaciones"],
+        "imagen": "mantenimiento.jpg"
+    }
+]

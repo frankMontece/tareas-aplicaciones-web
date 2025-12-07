@@ -1,0 +1,28 @@
+[
+    {
+        "id": 1,
+        "nombre": "Dr. Carlos Mendoza",
+        "email": "profesora@uleam.edu.ec",
+        "password": "profesora",
+        "rol": "profesor",
+        "departamento": "Ciencias de la Computación",
+        "facultad": "Ingeniería",
+        "materias": ["Aplicaciones Web", "Base de Datos", "Programación"],
+        "activo": true,
+        "fechaRegistro": "2024-01-15",
+        "permisos": ["crear_silabo", "editar_silabo", "ver_mis_silabos"]
+    },
+    {
+        "id": 2,
+        "nombre": "Lic. Ana García - Comisión Académica",
+        "email": "revision@uleam.edu.ec",
+        "password": "revision",
+        "rol": "comision_academica",
+        "departamento": "Decanato",
+        "facultad": "Todas",
+        "materias": [],
+        "activo": true,
+        "fechaRegistro": "2024-01-20",
+        "permisos": ["revisar_silabos", "aprobar_silabos", "ver_todos_silabos"]
+    }
+]

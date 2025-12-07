@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  CONFIGURACIÓN DEL SISTEMA DE AUTOMATIZACIÓN DE SÍLABOS
+  Universidad Laica Eloy Alfaro de Manabí
+  Versión: 1.0.0
+  Última actualización: Marzo 2024
+-->
+<sistema_silabos>
+
+    <!-- ==================== INFORMACIÓN INSTITUCIONAL ==================== -->
+    <informacion_institucional>
+        <universidad>
+            <nombre_completo>Universidad Laica Eloy Alfaro de Manabí</nombre_completo>
+            <nombre_corto>ULEAM</nombre_corto>
+            <lema>Ciencia, Conciencia y Trabajo</lema>
+            <tipo_institucion>Universidad Pública</tipo_institucion>
+            <logo_ruta>/assets/logo_uleam.png</logo_ruta>
+        </universidad>
+
+        <datos_contacto>
+            <direccion>Av. Circunvalación - Vía a San Mateo</direccion>
+            <ciudad>Manta</ciudad>
+            <provincia>Manabí</provincia>
+            <pais>Ecuador</pais>
+            <codigo_postal>130802</codigo_postal>
+            <telefono_central>+593 5 262-2244</telefono_central>
+            <sitio_web>https://www.uleam.edu.ec</sitio_web>
+            <correo_institucional>informacion@uleam.edu.ec</correo_institucional>
+        </datos_contacto>
+
+        <autoridades>
+            <rector>Dr. Miguel Camino Solórzano</rector>
+            <vicerrector_academico>MSc. Lino Vallejo</vicerrector_academico>
+            <decano_ingenieria>Ing. Carlos Rodríguez</decano_ingenieria>
+        </autoridades>
+    </informacion_institucional>
+
+    <!-- ==================== CONFIGURACIÓN DEL SISTEMA ==================== -->
+    <configuracion_sistema>
+        <informacion_aplicacion>
+            <nombre_sistema>Sistema de Automatización de Sílabos ULEAM</nombre_sistema>
+            <acronimo>SAS-ULEAM</acronimo>
+            <version>2.1.0</version>
+            <ambiente>produccion</ambiente>            <!-- desarrollo | pruebas | produccion -->
+            <fecha_implementacion>2024-03-15</fecha_implementacion>
+            <desarrollador>Departamento de Tecnologías de la Información ULEAM</desarrollador>
+            <email_soporte>soporte.silabos@uleam.edu.ec</email_soporte>
+        </informacion_aplicacion>
+
+        <!-- Periodo académico actual -->
+        <periodo_academico>
+            <ano>2024</ano>
+            <ano_academico>2024-2025</ano_academico>
+            <periodo>Primer Semestre</periodo>            <!-- Primer Semestre | Segundo Semestre -->
+            <numero_periodo>1</numero_periodo>
+            <modalidad>Presencial</modalidad>            <!-- Presencial | Virtual | Híbrido -->
+            <fecha_inicio_clases>2024-10-01</fecha_inicio_clases>
+            <fecha_fin_clases>2025-02-28</fecha_fin_clases>
+            <total_semanas>20</total_semanas>
+        </periodo_academico>
+
+        <!-- Fechas límite críticas para sílabos -->
+        <fechas_limite>
+            <entrega_silabos_profesores>2024-10-15</entrega_silabos_profesores>
+            <revision_coordinadores>2024-10-20</revision_coordinadores>
+            <revision_comision_academica>2024-10-25</revision_comision_academica>
+            <aprobacion_decanato>2024-10-30</aprobacion_decanato>
+            <publicacion_estudiantes>2024-11-01</publicacion_estudiantes>
+            <cierre_definitivo>2024-11-05</cierre_definitivo>
+        </fechas_limite>
+
+        <!-- Configuración específica para creación de sílabos -->
+        <configuracion_silabos>
+            <!-- Estructura del sílabo -->
+            <estructura>
+                <secciones_obligatorias>
+                    <seccion>informacion_general</seccion>
+                    <seccion>datos_asignatura</seccion>
+                    <seccion>objetivos</seccion>
+                    <seccion>unidades_didacticas</seccion>
+                    <seccion>evaluacion</seccion>
+                    <seccion>bibliografia</seccion>
+                    <seccion>firma_responsables</seccion>
+                </secciones_obligatorias>
+
+                <secciones_opcionales>
+                    <seccion>recursos_didacticos</seccion>
+                    <seccion>practicas_laboratorio</seccion>
+                    <seccion>proyectos_investigacion</seccion>
+                    <seccion>enlaces_utiles</seccion>
+                </secciones_opcionales>
+            </estructura>
+
+            <!-- Validaciones y límites -->
+            <validaciones>
+                <unidades>
+                    <minimo>4</minimo>
+                    <maximo>8</maximo>
+                    <recomendado>5</recomendado>
+                </unidades>
+
+                <objetivos>
+                    <generales_minimo>1</generales_minimo>
+                    <generales_maximo>3</generales_maximo>
+                    <especificos_minimo>3</especificos_minimo>
+                    <especificos_maximo>8</especificos_maximo>
+                </objetivos>
+
+                <evaluaciones>
+                    <minimo_actividades>3</minimo_actividades>
+                    <maximo_actividades>10</maximo_actividades>
+                    <porcentaje_minimo>5</porcentaje_minimo>
+                    <porcentaje_maximo>40</porcentaje_maximo>
+                </evaluaciones>
+
+                <bibliografia>
+                    <minima_obligatoria>3</minima_obligatoria>
+                    <maxima_obligatoria>10</maxima_obligatoria>
+                    <minima_complementaria>2</minima_complementaria>
+                    <maxima_complementaria>8</maxima_complementaria>
+                </bibliografia>
+            </validaciones>
+
+            <!-- Contenido por defecto -->
+            <contenido_por_defecto>
+                <objetivo_general>
+          Proporcionar al estudiante los conocimientos teóricos y prácticos necesarios 
+          para el desarrollo de competencias específicas en el área de estudio.
+                </objetivo_general>
+
+                <competencia_general>
+          Al finalizar la asignatura, el estudiante será capaz de aplicar los 
+          conocimientos adquiridos en la resolución de problemas reales de su 
+          ámbito profesional.
+                </competencia_general>
+
+                <metodologia_por_defecto>
+          La metodología será activa-participativa, combinando clases teóricas, 
+          prácticas de laboratorio, trabajos individuales y grupales, y 
+          evaluación continua.
+                </metodologia_por_defecto>
+            </contenido_por_defecto>
+        </configuracion_silabos>
+    </configuracion_sistema>
+
+    <!-- ==================== CONFIGURACIÓN ACADÉMICA ==================== -->
+    <configuracion_academica>
+        <!-- Facultades y carreras de ULEAM -->
+        <facultades>
+            <facultad codigo="FING" nombre="Facultad de Ingeniería">
+                <carrera codigo="ISW" nombre="Ingeniería en Software" duracion="10 semestres"/>
+                <carrera codigo="TICS" nombre="Tecnologías de la Información" duracion="8 semestres"/>
+                <carrera codigo="IA" nombre="Inteligencia Artificial" duracion="10 semestres"/>
+                <carrera codigo="CIV" nombre="Ingeniería Civil" duracion="10 semestres"/>
+            </facultad>
+
+            <facultad codigo="FCS" nombre="Facultad de Ciencias de la Salud">
+                <carrera codigo="MED" nombre="Medicina" duracion="12 semestres"/>
+                <carrera codigo="ENF" nombre="Enfermería" duracion="10 semestres"/>
+            </facultad>
+
+            <facultad codigo="FCE" nombre="Facultad de Ciencias de la Educación">
+                <carrera codigo="PED" nombre="Pedagogía" duracion="8 semestres"/>
+            </facultad>
+        </facultades>
+
+        <!-- Niveles académicos -->
+        <niveles_academicos>
+            <nivel numero="1" nombre="Primer Nivel" ciclo="Básico"/>
+            <nivel numero="2" nombre="Segundo Nivel" ciclo="Básico"/>
+            <nivel numero="3" nombre="Tercer Nivel" ciclo="Básico"/>
+            <nivel numero="4" nombre="Cuarto Nivel" ciclo="Básico"/>
+            <nivel numero="5" nombre="Quinto Nivel" ciclo="Profesional"/>
+            <nivel numero="6" nombre="Sexto Nivel" ciclo="Profesional"/>
+            <nivel numero="7" nombre="Séptimo Nivel" ciclo="Profesional"/>
+            <nivel numero="8" nombre="Octavo Nivel" ciclo="Profesional"/>
+            <nivel numero="9" nombre="Noveno Nivel" ciclo="Profesional"/>
+            <nivel numero="10" nombre="Décimo Nivel" ciclo="Profesional"/>
+        </niveles_academicos>
+
+        <!-- Tipos de asignatura -->
+        <tipos_asignatura>
+            <tipo codigo="OB" nombre="Obligatoria"/>
+            <tipo codigo="OP" nombre="Optativa"/>
+            <tipo codigo="EL" nombre="Electiva"/>
+            <tipo codigo="PR" nombre="Práctica"/>
+            <tipo codigo="IN" nombre="Investigación"/>
+        </tipos_asignatura>
+    </configuracion_academica>
+
+    <!-- ==================== CONFIGURACIÓN DE FORMATO ==================== -->
+    <formato_impresion>
+        <!-- Configuración para generar PDF -->
+        <documento>
+            <tamano_papel>A4</tamano_papel>
+            <orientacion>vertical</orientacion>            <!-- vertical | horizontal -->
+            <margenes>
+                <superior>2.5cm</superior>
+                <inferior>2.5cm</inferior>
+                <izquierdo>3cm</izquierdo>
+                <derecho>2cm</derecho>
+            </margenes>
+            <interlineado>1.5</interlineado>
+            <espaciado_parrafos>6pt</espaciado_parrafos>
+        </documento>
+
+        <!-- Estilos y colores institucionales -->
+        <estilos>
+            <fuentes>
+                <principal_familia>Arial, sans-serif</principal_familia>
+                <principal_tamano>11pt</principal_tamano>
+                <titulo_familia>Arial, sans-serif</titulo_familia>
+                <titulo_tamano>14pt</titulo_tamano>
+                <subtitulo_tamano>12pt</subtitulo_tamano>
+            </fuentes>
+
+            <colores_institucionales>
+                <primario>#003366</primario>                <!-- Azul ULEAM -->
+                <secundario>#CC0000</secundario>                <!-- Rojo ULEAM -->
+                <acento>#FF9900</acento>                <!-- Naranja ULEAM -->
+                <texto_primario>#000000</texto_primario>
+                <texto_secundario>#333333</texto_secundario>
+            </colores_institucionales>
+        </estilos>
+
+        <!-- Encabezado y pie de página -->
+        <encabezado_pie>
+            <encabezado_habilitado>true</encabezado_habilitado>
+            <pie_habilitado>true</pie_habilitado>
+            <mostrar_logo>true</mostrar_logo>
+            <mostrar_fecha_generacion>true</mostrar_fecha_generacion>
+            <mostrar_pagina>true</mostrar_pagina>
+        </encabezado_pie>
+
+        <!-- Plantilla de firma -->
+        <firma>
+            <espacio_firma altura="5cm"/>
+            <linea_firma longitud="8cm"/>
+            <texto_firma_profesor>Nombre y Apellido del Docente</texto_firma_profesor>
+            <texto_firma_coordinador>Nombre y Apellido del Coordinador</texto_firma_coordinador>
+            <texto_firma_decano>Nombre y Apellido del Decano</texto_firma_decano>
+        </firma>
+    </formato_impresion>
+
+    <!-- ==================== CONFIGURACIÓN DEL SISTEMA ==================== -->
+    <configuracion_tecnica>
+        <!-- Configuración de sesión y seguridad -->
+        <sesion_seguridad>
+            <tiempo_expiracion_sesion>60</tiempo_expiracion_sesion>            <!-- minutos -->
+            <maximo_intentos_login>5</maximo_intentos_login>
+            <bloqueo_temporal>15</bloqueo_temporal>            <!-- minutos -->
+            <requiere_cambio_password>90</requiere_cambio_password>            <!-- días -->
+            <password_min_length>8</password_min_length>
+            <requiere_mayuscula>true</requiere_mayuscula>
+            <requiere_numero>true</requiere_numero>
+            <requiere_caracter_especial>true</requiere_caracter_especial>
+        </sesion_seguridad>
+
+        <!-- Configuración de almacenamiento -->
+        <almacenamiento>
+            <ruta_archivos>/silabos/</ruta_archivos>
+            <formato_archivo_silabo>.pdf</formato_archivo_silabo>
+            <tamano_maximo_mb>10</tamano_maximo_mb>
+            <formatos_permitidos>
+                <formato>.pdf</formato>
+                <formato>.docx</formato>
+                <formato>.odt</formato>
+            </formatos_permitidos>
+            <backup_automatico>true</backup_automatico>
+            <frecuencia_backup>diario</frecuencia_backup>            <!-- diario | semanal | mensual -->
+        </almacenamiento>
+
+        <!-- Configuración de notificaciones -->
+        <notificaciones>
+            <notificar_plazos>true</notificar_plazos>
+            <notificar_aprobacion>true</notificar_aprobacion>
+            <notificar_cambios>true</notificar_cambios>
+            <dias_antes_recordatorio>3</dias_antes_recordatorio>
+            <email_notificaciones>true</email_notificaciones>
+        </notificaciones>
+
+        <!-- Configuración regional -->
+        <regional>
+            <idioma>es</idioma>            <!-- es | en -->
+            <pais>EC</pais>
+            <zona_horaria>America/Guayaquil</zona_horaria>
+            <formato_fecha>DD/MM/YYYY</formato_fecha>
+            <formato_hora>HH:mm</formato_hora>
+            <moneda>USD</moneda>
+        </regional>
+    </configuracion_tecnica>
+
+    <!-- ==================== RUTAS DE ACCESO ==================== -->
+    <rutas_acceso>
+        <paginas>
+            <inicio>/index_login.html</inicio>
+            <dashboard_profesor>/dashboard.html</dashboard_profesor>
+            <dashboard_comision>/pendientes.html</dashboard_comision>
+            <crear_silabo>/crear_silabo.html</crear_silabo>
+            <editar_silabo>/editar_silabo.html</editar_silabo>
+            <ver_silabo>/ver_silabo.html</ver_silabo>
+            <recuperar_password>/recuperar_contrasena.html</recuperar_password>
+        </paginas>
+
+        <api_endpoints>
+            <login>/api/auth/login</login>
+            <logout>/api/auth/logout</logout>
+            <silabos>/api/silabos</silabos>
+            <materias>/api/materias</materias>
+            <usuarios>/api/usuarios</usuarios>
+            <reportes>/api/reportes</reportes>
+        </api_endpoints>
+    </rutas_acceso>
+
+    <!-- ==================== MÉTRICAS Y ESTADÍSTICAS ==================== -->
+    <metricas>
+        <reportes_automaticos>
+            <reporte_diario>false</reporte_diario>
+            <reporte_semanal>true</reporte_semanal>
+            <reporte_mensual>true</reporte_mensual>
+        </reportes_automaticos>
+
+        <indicadores>
+            <indicador>silabos_creados</indicador>
+            <indicador>silabos_pendientes</indicador>
+            <indicador>silabos_aprobados</indicador>
+            <indicador>tiempo_promedio_creacion</indicador>
+            <indicador>usuarios_activos</indicador>
+        </indicadores>
+    </metricas>
+
+    <!-- ==================== INFORMACIÓN DE CONTACTO ==================== -->
+    <contacto_soporte>
+        <departamento>Departamento de Tecnologías de la Información ULEAM</departamento>
+        <responsable>Ing. Francisco Montece</responsable>
+        <email_principal>soporte.silabos@uleam.edu.ec</email_principal>
+        <email_alternativo>ti@uleam.edu.ec</email_alternativo>
+        <telefono_principal>+593 5 262-2200 ext. 1234</telefono_principal>
+        <telefono_alternativo>+593 5 262-2300</telefono_alternativo>
+        <horario_atencion>
+            <dias>Lunes a Viernes</dias>
+            <hora_inicio>08:00</hora_inicio>
+            <hora_fin>17:00</hora_fin>
+        </horario_atencion>
+        <ubicacion_fisica>Edificio de Rectorado, 3er piso, Oficina 304</ubicacion_fisica>
+    </contacto_soporte>
+
+</sistema_silabos>
